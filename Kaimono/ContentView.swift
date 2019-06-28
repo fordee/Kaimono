@@ -7,32 +7,29 @@
 //
 
 import SwiftUI
+import TinyNetworking
+
 
 struct ContentView : View {
-  @EnvironmentObject var shoppingList: ShoppingList
+  @ObjectBinding var store = sharedStore
   
   var body: some View {
-    NavigationView {
-      List(self.shoppingList.items) { item in
-        ShoppingListRow(itemName: item.description, bought: item.isDone)
+    Group {
+      if !store.loaded {
+        Text("Loading...")
+      } else {
+        NavigationView {
+          ShoppingListView(toDos: store.shoppingList)
+        }
       }
-      .navigationBarTitle(Text("Shopping List"))
-      .navigationBarItems(trailing:
-        Button(action: {
-          print("Refresh tapped!")
-          self.shoppingList.load()
-        }) {
-          Image(systemName: "arrow.clockwise")
-      })
     }
-    
   }
 }
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
   static var previews: some View {
-    ContentView()
+    return ContentView()
   }
 }
 #endif
