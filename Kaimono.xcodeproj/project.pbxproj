@@ -23,6 +23,7 @@
 		493F206E22C56D9600C38D34 /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		493F207122C5784A00C38D34 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		493F207322C5792000C38D34 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		493F207522C5A4D400C38D34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4992E98E22C558CA00BA58AC /* Kaimono.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kaimono.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4992E99122C558CA00BA58AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4992E99322C558CA00BA58AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		4992E98522C558C900BA58AC = {
 			isa = PBXGroup;
 			children = (
+				493F207522C5A4D400C38D34 /* README.md */,
 				4992E99022C558CA00BA58AC /* Kaimono */,
 				4992E98F22C558CA00BA58AC /* Products */,
 			);
