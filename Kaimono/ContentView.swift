@@ -9,14 +9,23 @@
 import SwiftUI
 
 struct ContentView : View {
+  @EnvironmentObject var shoppingList: ShoppingList
+  
   var body: some View {
     NavigationView {
-      List() {
-        ShoppingListRow(itemName: "Test", bought: true)
-        ShoppingListRow(itemName: "Test", bought: false)
+      List(self.shoppingList.items) { item in
+        ShoppingListRow(itemName: item.description, bought: item.isDone)
       }
       .navigationBarTitle(Text("Shopping List"))
+      .navigationBarItems(trailing:
+        Button(action: {
+          print("Refresh tapped!")
+          self.shoppingList.load()
+        }) {
+          Image(systemName: "arrow.clockwise")
+      })
     }
+    
   }
 }
 

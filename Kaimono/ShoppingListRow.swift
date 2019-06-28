@@ -14,17 +14,21 @@ struct ShoppingListRow : View {
   var body: some View {
     HStack {
       if bought {
-        Image(systemName: "checkmark.circle")
+        Image(systemName: "checkmark.circle.fill")
+          .foregroundColor(.accentColor)
         Text(itemName)
           .font(.headline)
           .fontWeight(.semibold)
           .strikethrough()
+          .color(.accentColor)
           .padding(4)
       } else {
         Image(systemName: "circle")
+          .foregroundColor(.accentColor)
         Text(itemName)
           .font(.headline)
           .fontWeight(.semibold)
+          .color(.accentColor)
           .padding(4)
       }
     }
