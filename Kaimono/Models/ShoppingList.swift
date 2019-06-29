@@ -24,6 +24,7 @@ func apiEndpointString() -> String {
 
 let allToDos =  Endpoint<[ToDo]>(json: .get, url: URL(string: apiEndpointString() + "/items")!)
 
+
 let sharedStore = Store()
 
 final class Store: BindableObject {
@@ -46,5 +47,14 @@ final class Store: BindableObject {
   
   func reload() {
     sharedToDos.reload()
+  }
+  
+  func toggleToDo(toDo: ToDo) {
+    let done = toDo.isDone ? "false" : "true"
+    let item = ToDo(category: toDo.category, description: toDo.description, done: done, shoppingCategory: toDo.shoppingCategory)
+    let saveToDoEndpoint = Endpoint<ToDo>(json: .post, url: URL(string: apiEndpointString() + "/items")!, body: item)
+    _ = Resource(endpoint: saveToDoEndpoint) {
+      self.reload()
+    }
   }
 }
