@@ -11,7 +11,7 @@
 		49063BE522C6AE7B00E1A2C9 /* ShoppingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */; };
 		493F206F22C56D9600C38D34 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493F206E22C56D9600C38D34 /* Api.plist */; };
 		493F207222C5784A00C38D34 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207122C5784A00C38D34 /* ToDo.swift */; };
-		493F207422C5792000C38D34 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207322C5792000C38D34 /* ShoppingList.swift */; };
+		493F207422C5792000C38D34 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207322C5792000C38D34 /* Store.swift */; };
 		493F207822C69E6A00C38D34 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 493F207722C69E6A00C38D34 /* TinyNetworking */; };
 		493F207B22C6A25600C38D34 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 493F207A22C6A25600C38D34 /* Model */; };
 		493F207D22C6A25600C38D34 /* ViewHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 493F207C22C6A25600C38D34 /* ViewHelpers */; };
@@ -22,7 +22,6 @@
 		4992E99822C558CD00BA58AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99722C558CD00BA58AC /* Assets.xcassets */; };
 		4992E99B22C558CD00BA58AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */; };
 		4992E99E22C558CD00BA58AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */; };
-		4992E9A622C55A8800BA58AC /* ShoppingListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E9A522C55A8800BA58AC /* ShoppingListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,7 @@
 		49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDetails.swift; sourceTree = "<group>"; };
 		493F206E22C56D9600C38D34 /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		493F207122C5784A00C38D34 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		493F207322C5792000C38D34 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		493F207322C5792000C38D34 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		493F207522C5A4D400C38D34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		493F207E22C6A2FE00C38D34 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		4992E98E22C558CA00BA58AC /* Kaimono.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kaimono.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,7 +40,6 @@
 		4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4992E99D22C558CD00BA58AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4992E99F22C558CD00BA58AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4992E9A522C55A8800BA58AC /* ShoppingListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +56,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49185F7E22C6FCCF003BB77E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				493F207322C5792000C38D34 /* Store.swift */,
+				493F207E22C6A2FE00C38D34 /* Resource.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		49185F7F22C6FCF6003BB77E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */,
+				49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */,
+				4992E99522C558CA00BA58AC /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		493F207022C5782B00C38D34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				493F207122C5784A00C38D34 /* ToDo.swift */,
-				493F207322C5792000C38D34 /* ShoppingList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -87,19 +103,16 @@
 		4992E99022C558CA00BA58AC /* Kaimono */ = {
 			isa = PBXGroup;
 			children = (
+				49185F7F22C6FCF6003BB77E /* Views */,
+				49185F7E22C6FCCF003BB77E /* Network */,
 				493F207022C5782B00C38D34 /* Models */,
 				4992E99122C558CA00BA58AC /* AppDelegate.swift */,
 				4992E99322C558CA00BA58AC /* SceneDelegate.swift */,
-				4992E99522C558CA00BA58AC /* ContentView.swift */,
-				4992E9A522C55A8800BA58AC /* ShoppingListRow.swift */,
 				4992E99722C558CD00BA58AC /* Assets.xcassets */,
 				4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */,
 				4992E99F22C558CD00BA58AC /* Info.plist */,
 				4992E99922C558CD00BA58AC /* Preview Content */,
 				493F206E22C56D9600C38D34 /* Api.plist */,
-				493F207E22C6A2FE00C38D34 /* Resource.swift */,
-				49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */,
-				49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */,
 			);
 			path = Kaimono;
 			sourceTree = "<group>";
@@ -194,9 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49063BE322C6AE1700E1A2C9 /* ShoppingListView.swift in Sources */,
-				4992E9A622C55A8800BA58AC /* ShoppingListRow.swift in Sources */,
 				49063BE522C6AE7B00E1A2C9 /* ShoppingDetails.swift in Sources */,
-				493F207422C5792000C38D34 /* ShoppingList.swift in Sources */,
+				493F207422C5792000C38D34 /* Store.swift in Sources */,
 				493F207222C5784A00C38D34 /* ToDo.swift in Sources */,
 				4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */,
 				4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */,

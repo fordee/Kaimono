@@ -9,7 +9,6 @@
 import Foundation
 import SwiftUI
 
-// This is the bare Photo model.
 struct ToDo: Codable, Hashable, Identifiable {
   
   enum CodingKeys: String, CodingKey {
@@ -31,14 +30,6 @@ struct ToDo: Codable, Hashable, Identifiable {
     self.description = description
     self.done = done
     self.shoppingCategory = shoppingCategory
-  }
-  
-  mutating func toggleDone() {
-    if isDone {
-      done = "false"
-    } else {
-      done = "true"
-    }
   }
 }
 
