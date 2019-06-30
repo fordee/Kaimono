@@ -36,3 +36,27 @@ struct ToDo: Codable, Hashable, Identifiable {
 extension Identifiable where Self: Hashable {
   public var id: Int { return hashValue }
 }
+
+extension ToDo: Equatable {
+  static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
+    return lhs.description == rhs.description
+  }
+}
+
+extension ToDo: Comparable {
+  static func < (lhs: ToDo, rhs: ToDo) -> Bool {
+    switch (lhs.done, rhs.done) {
+    case ("true", "true"):
+      return lhs.description < rhs.description
+    case ("true", "false"):
+      return false
+    case ("false", "true"):
+      return true
+    case ("false", "false"):
+      return lhs.description < rhs.description
+    default:
+      print("Found unexpected done status: (\(lhs.done), \(rhs.done))")
+      return false
+    }
+  }
+}

@@ -12,24 +12,40 @@ import TinyNetworking
 import Model
 
 struct ShoppingDetails : View {
-  let toDo: ToDo
+  @State var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
   @ObjectBinding var store = sharedStore
+  @Environment(\.isPresented) private var isPresented
   
-  init(toDo: ToDo) {
-    self.toDo = toDo
-  }
   var body: some View {
-    VStack {
-      Text(toDo.description).font(.largeTitle).lineLimit(nil)
-      Text(toDo.shoppingCategory).lineLimit(nil)
+    NavigationView {
+      Form {
+        Section {
+          TextField($toDo.description, placeholder: Text("Shopping Item"))
+        }
+        Section {
+          Button(action: { print("Add Item"); self.dismiss()}) {
+            Text("Add")
+          }
+          Button(action: { print("Cancel"); self.dismiss()}) {
+            Text("Cancel")
+          }
+        }
+      }
+      .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
+      .font(.headline)
     }
+  }
+  
+  func dismiss() {
+    UIApplication.shared.keyWindow?.endEditing(true)
+    isPresented?.value = false
   }
 }
 
 #if DEBUG
 struct ShoppingDetails_Previews : PreviewProvider {
   static var previews: some View {
-    ShoppingDetails(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "done", shoppingCategory: "Vegetables"))
+    ShoppingDetails()
   }
 }
 #endif

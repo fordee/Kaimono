@@ -13,9 +13,7 @@ import ViewHelpers
 struct ShoppingListView : View {
   let toDos: [ToDo]
   var body: some View {
-    List(toDos) { toDo in
-      
-      //NavigationButton(destination: ShoppingDetails(toDo: toDo)) {
+    List(toDos.sorted()) { toDo in
       HStack {
         if toDo.isDone {
           Image(systemName: "checkmark.circle.fill")
@@ -40,14 +38,16 @@ struct ShoppingListView : View {
         sharedStore.toggleToDo(toDo: toDo)
       }
     }
-
     .navigationBarTitle(Text("Shopping List"))
-    .navigationBarItems(trailing:
+    .navigationBarItems(leading:
       Button(action: {
         print("Refresh tapped!")
         sharedStore.reload()
       }) {
         Image(systemName: "arrow.clockwise")
+      },
+      trailing: PresentationButton(destination: ShoppingDetails()) {
+        Image(systemName: "plus")
     })
   }
 }
