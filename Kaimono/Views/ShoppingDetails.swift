@@ -22,17 +22,21 @@ struct ShoppingDetails : View {
         Section {
           TextField($toDo.description, placeholder: Text("Shopping Item"))
         }
-        Section {
-          Button(action: { print("Add Item"); self.dismiss()}) {
-            Text("Add")
-          }
-          Button(action: { print("Cancel"); self.dismiss()}) {
-            Text("Cancel")
-          }
-        }
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
-      .font(.headline)
+      .navigationBarItems(leading:
+        Button(action: {
+          print("Cancel")
+          self.dismiss()
+        }) {
+          Text("Cancel")
+        },
+        trailing: Button(action: {
+          print("Cancel")
+          self.dismiss()
+        }) {
+          Image(systemName: "plus")
+        })
     }
   }
   
