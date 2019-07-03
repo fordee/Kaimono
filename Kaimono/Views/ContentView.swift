@@ -7,8 +7,6 @@
 //
 
 import SwiftUI
-import TinyNetworking
-
 
 struct ContentView : View {
   @ObjectBinding var store = sharedStore

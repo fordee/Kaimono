@@ -9,7 +9,6 @@
 import Foundation
 import Combine
 import SwiftUI
-import TinyNetworking
 
 func apiEndpointString() -> String {
   guard
@@ -23,7 +22,6 @@ func apiEndpointString() -> String {
 }
 
 let allToDos =  Endpoint<[ToDo]>(json: .get, url: URL(string: apiEndpointString() + "/items")!)
-
 
 let sharedStore = Store()
 
@@ -47,6 +45,27 @@ final class Store: BindableObject {
   
   func reload() {
     sharedToDos.reload()
+  }
+  
+  func deleteToDos(toDos: [ToDo]) {
+    for toDo in toDos {
+      deleteToDo(toDo: toDo)
+    }
+  }
+  
+  func deleteToDo(toDo: ToDo) {
+    let deleteString = "/items/\(toDo.description)/Shopping".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+    let deleteEndpoint = Endpoint<ToDo>(json: .delete, url: URL(string: apiEndpointString() + deleteString)!)
+    _ = Resource(endpoint: deleteEndpoint) {
+      self.reload() // TODO: Do we want to refresh every time? Probably not.
+    }
+  }
+  
+  func saveToDo(toDo: ToDo) {
+    let saveToDoEndpoint = Endpoint<ToDo>(json: .post, url: URL(string: apiEndpointString() + "/items")!, body: toDo)
+    _ = Resource(endpoint: saveToDoEndpoint) {
+      self.reload()
+    }
   }
   
   func toggleToDo(toDo: ToDo) {

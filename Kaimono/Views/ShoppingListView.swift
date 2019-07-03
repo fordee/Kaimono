@@ -7,10 +7,10 @@
 //
 
 import SwiftUI
-import Model
-import ViewHelpers
 
 struct ShoppingListView : View {
+  @ObjectBinding var store = sharedStore
+  
   let toDos: [ToDo]
   var body: some View {
     List(toDos.sorted()) { toDo in
@@ -40,13 +40,21 @@ struct ShoppingListView : View {
     }
     .navigationBarTitle(Text("Shopping List"))
     .navigationBarItems(leading:
+      HStack {
       Button(action: {
         print("Refresh tapped!")
         sharedStore.reload()
       }) {
         Image(systemName: "arrow.clockwise")
+      }.padding()
+      Button(action: {
+        print("Delete")
+        self.store.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
+      }, label: {
+        Image(systemName: "trash")
+      }).padding()
       },
-      trailing: PresentationButton(destination: ShoppingDetails()) {
+        trailing: PresentationLink(destination: ShoppingDetails()) {
         Image(systemName: "plus")
     })
   }
@@ -56,7 +64,8 @@ struct ShoppingListView : View {
 struct ShoppingListView_Previews : PreviewProvider {
   static var previews: some View {
     NavigationView {
-      ShoppingListView(toDos: [ToDo(category: "Shopping", description: "Lettuce", done: "done", shoppingCategory: "Vegetables")])
+      ShoppingListView(toDos: [ToDo(category: "Shopping", description: "Lettuce", done: "true", shoppingCategory: "Vegetables"),
+      ToDo(category: "Shopping", description: "Pototoes", done: "false", shoppingCategory: "Vegetables")])
     }
   }
 }

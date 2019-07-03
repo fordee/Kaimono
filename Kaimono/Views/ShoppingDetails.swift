@@ -8,8 +8,6 @@
 // This view isn't used, but included to show how to use sharedStore
 
 import SwiftUI
-import TinyNetworking
-import Model
 
 struct ShoppingDetails : View {
   @State var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
@@ -20,7 +18,7 @@ struct ShoppingDetails : View {
     NavigationView {
       Form {
         Section {
-          TextField($toDo.description, placeholder: Text("Shopping Item"))
+          TextField("Shopping Item", text: $toDo.description)
         }
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
@@ -32,7 +30,8 @@ struct ShoppingDetails : View {
           Text("Cancel")
         },
         trailing: Button(action: {
-          print("Cancel")
+          print("Add")
+          self.store.saveToDo(toDo: self.toDo)
           self.dismiss()
         }) {
           Image(systemName: "plus")
@@ -41,7 +40,6 @@ struct ShoppingDetails : View {
   }
   
   func dismiss() {
-    UIApplication.shared.keyWindow?.endEditing(true)
     isPresented?.value = false
   }
 }

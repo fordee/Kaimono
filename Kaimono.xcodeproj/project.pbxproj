@@ -3,18 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		49063BE322C6AE1700E1A2C9 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */; };
 		49063BE522C6AE7B00E1A2C9 /* ShoppingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */; };
+		4915255322CBC27100B57D41 /* RemoteEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915255222CBC27100B57D41 /* RemoteEndpoint.swift */; };
+		4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915255422CBC90200B57D41 /* FrequentItem.swift */; };
 		493F206F22C56D9600C38D34 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493F206E22C56D9600C38D34 /* Api.plist */; };
 		493F207222C5784A00C38D34 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207122C5784A00C38D34 /* ToDo.swift */; };
 		493F207422C5792000C38D34 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207322C5792000C38D34 /* Store.swift */; };
-		493F207822C69E6A00C38D34 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 493F207722C69E6A00C38D34 /* TinyNetworking */; };
-		493F207B22C6A25600C38D34 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 493F207A22C6A25600C38D34 /* Model */; };
-		493F207D22C6A25600C38D34 /* ViewHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 493F207C22C6A25600C38D34 /* ViewHelpers */; };
 		493F207F22C6A2FE00C38D34 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207E22C6A2FE00C38D34 /* Resource.swift */; };
 		4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99122C558CA00BA58AC /* AppDelegate.swift */; };
 		4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99322C558CA00BA58AC /* SceneDelegate.swift */; };
@@ -27,6 +26,8 @@
 /* Begin PBXFileReference section */
 		49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDetails.swift; sourceTree = "<group>"; };
+		4915255222CBC27100B57D41 /* RemoteEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEndpoint.swift; sourceTree = "<group>"; };
+		4915255422CBC90200B57D41 /* FrequentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItem.swift; sourceTree = "<group>"; };
 		493F206E22C56D9600C38D34 /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		493F207122C5784A00C38D34 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		493F207322C5792000C38D34 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -47,9 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493F207D22C6A25600C38D34 /* ViewHelpers in Frameworks */,
-				493F207B22C6A25600C38D34 /* Model in Frameworks */,
-				493F207822C69E6A00C38D34 /* TinyNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,8 +57,9 @@
 		49185F7E22C6FCCF003BB77E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				493F207322C5792000C38D34 /* Store.swift */,
+				4915255222CBC27100B57D41 /* RemoteEndpoint.swift */,
 				493F207E22C6A2FE00C38D34 /* Resource.swift */,
+				493F207322C5792000C38D34 /* Store.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -79,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				493F207122C5784A00C38D34 /* ToDo.swift */,
+				4915255422CBC90200B57D41 /* FrequentItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,9 +142,6 @@
 			);
 			name = Kaimono;
 			packageProductDependencies = (
-				493F207722C69E6A00C38D34 /* TinyNetworking */,
-				493F207A22C6A25600C38D34 /* Model */,
-				493F207C22C6A25600C38D34 /* ViewHelpers */,
 			);
 			productName = Kaimono;
 			productReference = 4992E98E22C558CA00BA58AC /* Kaimono.app */;
@@ -175,8 +172,6 @@
 			);
 			mainGroup = 4992E98522C558C900BA58AC;
 			packageReferences = (
-				493F207622C69E6900C38D34 /* XCRemoteSwiftPackageReference "tiny-networking" */,
-				493F207922C6A25600C38D34 /* XCRemoteSwiftPackageReference "swift-talk-shared" */,
 			);
 			productRefGroup = 4992E98F22C558CA00BA58AC /* Products */;
 			projectDirPath = "";
@@ -208,7 +203,9 @@
 			files = (
 				49063BE322C6AE1700E1A2C9 /* ShoppingListView.swift in Sources */,
 				49063BE522C6AE7B00E1A2C9 /* ShoppingDetails.swift in Sources */,
+				4915255322CBC27100B57D41 /* RemoteEndpoint.swift in Sources */,
 				493F207422C5792000C38D34 /* Store.swift in Sources */,
+				4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */,
 				493F207222C5784A00C38D34 /* ToDo.swift in Sources */,
 				4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */,
 				4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */,
@@ -407,43 +404,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		493F207622C69E6900C38D34 /* XCRemoteSwiftPackageReference "tiny-networking" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/objcio/tiny-networking";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		493F207922C6A25600C38D34 /* XCRemoteSwiftPackageReference "swift-talk-shared" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/objcio/swift-talk-shared";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		493F207722C69E6A00C38D34 /* TinyNetworking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 493F207622C69E6900C38D34 /* XCRemoteSwiftPackageReference "tiny-networking" */;
-			productName = TinyNetworking;
-		};
-		493F207A22C6A25600C38D34 /* Model */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 493F207922C6A25600C38D34 /* XCRemoteSwiftPackageReference "swift-talk-shared" */;
-			productName = Model;
-		};
-		493F207C22C6A25600C38D34 /* ViewHelpers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 493F207922C6A25600C38D34 /* XCRemoteSwiftPackageReference "swift-talk-shared" */;
-			productName = ViewHelpers;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4992E98622C558C900BA58AC /* Project object */;
 }

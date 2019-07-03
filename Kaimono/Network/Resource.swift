@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import TinyNetworking
 import Combine
 import SwiftUI
 
@@ -30,8 +29,13 @@ final class Resource<A>: BindableObject {
   }
   
   func reload() {
-    URLSession.shared.load(endpoint) { result in
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 20 * 60 // 20 min
+    let session = URLSession(configuration: configuration)
+    
+    session.load(endpoint) { result in
       self.value = try? result.get()
+      print("endpoint: \(self.endpoint)")
       print("value: \(String(describing: self.value))")
       if let completion = self.completion {
         completion()
