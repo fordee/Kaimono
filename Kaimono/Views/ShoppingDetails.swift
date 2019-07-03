@@ -5,7 +5,6 @@
 //  Created by John Forde on 29/06/19.
 //  Copyright © 2019 John Forde. All rights reserved.
 //
-// This view isn't used, but included to show how to use sharedStore
 
 import SwiftUI
 

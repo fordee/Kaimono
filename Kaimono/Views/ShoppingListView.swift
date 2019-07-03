@@ -14,29 +14,7 @@ struct ShoppingListView : View {
   let toDos: [ToDo]
   var body: some View {
     List(toDos.sorted()) { toDo in
-      HStack {
-        if toDo.isDone {
-          Image(systemName: "checkmark.circle.fill")
-            .foregroundColor(.secondary)
-          Text(toDo.description)
-            .font(.headline)
-            .fontWeight(.semibold)
-            .strikethrough()
-            .color(.secondary)
-            .padding(4)
-        } else {
-          Image(systemName: "circle")
-            .foregroundColor(.accentColor)
-          Text(toDo.description)
-            .font(.headline)
-            .fontWeight(.semibold)
-            .color(.accentColor)
-            .padding(4)
-        }
-      }.tapAction {
-        print("Tapped \(toDo.description)!")
-        sharedStore.toggleToDo(toDo: toDo)
-      }
+      ShoppingListRow(toDo: toDo)
     }
     .navigationBarTitle(Text("Shopping List"))
     .navigationBarItems(leading:
