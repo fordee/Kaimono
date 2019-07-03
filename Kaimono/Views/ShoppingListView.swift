@@ -24,16 +24,19 @@ struct ShoppingListView : View {
         sharedStore.reload()
       }) {
         Image(systemName: "arrow.clockwise")
+        .imageScale(.large)
       }.padding()
       Button(action: {
         print("Delete")
         self.store.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
       }, label: {
         Image(systemName: "trash")
+        .imageScale(.large)
       }).padding()
       },
         trailing: PresentationLink(destination: ShoppingDetails()) {
         Image(systemName: "plus")
+        .imageScale(.large)
     })
   }
 }

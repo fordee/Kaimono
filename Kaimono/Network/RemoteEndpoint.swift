@@ -142,7 +142,7 @@ extension URLSession {
         return
       }
       
-      print("Data size: \(data?.count)")
+      print("Data size: \(data?.count ?? 0)")
       
       onComplete(e.parse(data))
     }).resume()

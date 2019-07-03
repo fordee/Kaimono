@@ -70,8 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				49063BE422C6AE7B00E1A2C9 /* ShoppingDetails.swift */,
-				49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */,
 				4937A95D22CD1741001D458F /* ShoppingListRow.swift */,
+				49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */,
 				4992E99522C558CA00BA58AC /* ContentView.swift */,
 			);
 			path = Views;

@@ -34,6 +34,7 @@ struct ShoppingDetails : View {
           self.dismiss()
         }) {
           Image(systemName: "plus")
+          .imageScale(.large)
         })
     }
   }

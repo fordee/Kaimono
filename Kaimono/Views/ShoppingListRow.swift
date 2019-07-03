@@ -15,24 +15,27 @@ struct ShoppingListRow : View {
     HStack {
       if toDo.isDone {
         Image(systemName: "checkmark.circle.fill")
+          .imageScale(.large)
           .foregroundColor(.secondary)
           .padding(4)
         Text(toDo.description)
-          .font(.headline)
+          .font(.title)
           .fontWeight(.semibold)
           .strikethrough()
           .color(.secondary)
           .padding(4)
       } else {
         Image(systemName: "circle")
+          .imageScale(.large)
           .foregroundColor(.accentColor)
           .padding(4)
         Text(toDo.description)
-          .font(.headline)
+          .font(.title)
           .fontWeight(.semibold)
           .color(.accentColor)
           .padding(4)
       }
+      Spacer()
     }
     .tapAction {
       print("Tapped \(self.toDo.description)!")
