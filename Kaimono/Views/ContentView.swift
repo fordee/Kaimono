@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView : View {
-  @ObjectBinding var store = sharedStore
+  @ObjectBinding var store = sharedToDoStore
   
   var body: some View {
     Group {

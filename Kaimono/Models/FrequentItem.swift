@@ -9,15 +9,21 @@
 import Foundation
 import SwiftUI
 
-public struct FrequentItem: Codable, Equatable, Hashable {
+public struct FrequentItem: Codable, Equatable, Hashable, Identifiable {
   
   public static func == (lhs: FrequentItem, rhs: FrequentItem) -> Bool {
     return lhs.frequencyInt! > rhs.frequencyInt!
   }
   
+  enum CodingKeys: String, CodingKey {
+    case shoppingItem = "ShoppingItem"
+    case frequency = "Frequency"
+    case category = "Category"
+  }
+  
   var shoppingItem: String
   var frequency: String
-  var category: String
+  var category: String?
   
   var frequencyInt: Int? {
     return Int(frequency)
@@ -46,7 +52,7 @@ extension FrequentItem: Comparable {
   public static func < (lhs: FrequentItem, rhs: FrequentItem) -> Bool {
     guard let lhsFrequency = Int(lhs.frequency) else { return false }
     guard let rhsFrequency = Int(rhs.frequency) else { return false }
-    return lhsFrequency < rhsFrequency
+    return lhsFrequency > rhsFrequency
   }
 }
 

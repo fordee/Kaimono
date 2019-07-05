@@ -34,7 +34,11 @@ final class Resource<A>: BindableObject {
     let session = URLSession(configuration: configuration)
     
     session.load(endpoint) { result in
-      self.value = try? result.get()
+      do {
+        self.value = try result.get()
+      } catch let error {
+        print("Error: \(error)")
+      }
       print("endpoint: \(self.endpoint)")
       print("value: \(String(describing: self.value))")
       if let completion = self.completion {

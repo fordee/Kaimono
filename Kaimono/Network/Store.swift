@@ -22,10 +22,32 @@ func apiEndpointString() -> String {
 }
 
 let allToDos =  Endpoint<[ToDo]>(json: .get, url: URL(string: apiEndpointString() + "/items")!)
+let allFrequentItems =  Endpoint<[FrequentItem]>(json: .get, url: URL(string: apiEndpointString() + "/common-items")!)
 
-let sharedStore = Store()
+let sharedToDoStore = ToDoStore()
+let sharedFrequentItemsStore = FrequentItemsStore()
 
-final class Store: BindableObject {
+final class FrequentItemsStore: BindableObject {
+  let didChange: AnyPublisher<[FrequentItem]?, Never>
+  let sharedFrequentItems = Resource(endpoint: allFrequentItems)
+  
+  init() {
+    didChange = sharedFrequentItems.didChange.eraseToAnyPublisher()
+  }
+  
+  var frequentItems: [FrequentItem] { sharedFrequentItems.value ?? [] }
+  
+  var frequentItemsList: [FrequentItem] {
+    Array(frequentItems.sorted().prefix(20))
+  }
+  
+  func reload() {
+    sharedFrequentItems.reload()
+  }
+}
+
+
+final class ToDoStore: BindableObject {
   let didChange: AnyPublisher<[ToDo]?, Never>
   let sharedToDos = Resource(endpoint: allToDos)
   
@@ -63,9 +85,9 @@ final class Store: BindableObject {
   
   func saveToDo(toDo: ToDo) {
     let saveToDoEndpoint = Endpoint<ToDo>(json: .post, url: URL(string: apiEndpointString() + "/items")!, body: toDo)
-    _ = Resource(endpoint: saveToDoEndpoint) {
-      self.reload()
-    }
+    _ = Resource(endpoint: saveToDoEndpoint)// {
+      //self.reload()
+   // }
   }
   
   func toggleToDo(toDo: ToDo) {

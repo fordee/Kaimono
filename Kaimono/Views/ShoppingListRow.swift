@@ -39,7 +39,7 @@ struct ShoppingListRow : View {
     }
     .tapAction {
       print("Tapped \(self.toDo.description)!")
-      sharedStore.toggleToDo(toDo: self.toDo)
+      sharedToDoStore.toggleToDo(toDo: self.toDo)
     }
   }
 }

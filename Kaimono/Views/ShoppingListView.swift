@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct ShoppingListView : View {
-  @ObjectBinding var store = sharedStore
+  
+
   
   let toDos: [ToDo]
   var body: some View {
@@ -21,22 +22,22 @@ struct ShoppingListView : View {
       HStack {
       Button(action: {
         print("Refresh tapped!")
-        sharedStore.reload()
+        sharedToDoStore.reload()
       }) {
         Image(systemName: "arrow.clockwise")
         .imageScale(.large)
       }.padding()
       Button(action: {
         print("Delete")
-        self.store.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
+        sharedToDoStore.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
       }, label: {
         Image(systemName: "trash")
-        .imageScale(.large)
+          .imageScale(.large)
       }).padding()
       },
         trailing: PresentationLink(destination: ShoppingDetails()) {
         Image(systemName: "plus")
-        .imageScale(.large)
+          .imageScale(.large)
     })
   }
 }

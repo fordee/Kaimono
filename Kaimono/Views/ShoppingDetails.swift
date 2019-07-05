@@ -10,31 +10,40 @@ import SwiftUI
 
 struct ShoppingDetails : View {
   @State var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
-  @ObjectBinding var store = sharedStore
   @Environment(\.isPresented) private var isPresented
+  
+  @ObjectBinding var frequentItemStore = FrequentItemsStore()
   
   var body: some View {
     NavigationView {
-      Form {
-        Section {
-          TextField("Shopping Item", text: $toDo.description)
+      VStack { // Can't use a List in a Form
+        TextField("Shopping Item", text: $toDo.description)
+          .padding()
+        
+        List (frequentItemStore.frequentItemsList) { item in
+          Text(item.shoppingItem)
+            .tapAction {
+              print("tapped \(item.shoppingItem)")
+              self.toDo = ToDo(category: "Shopping", description: item.shoppingItem, done: "false", shoppingCategory: item.category ?? "No Category")
+            }
         }
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
-      .navigationBarItems(leading:
-        Button(action: {
-          print("Cancel")
-          self.dismiss()
-        }) {
-          Text("Cancel")
-        },
-        trailing: Button(action: {
-          print("Add")
-          self.store.saveToDo(toDo: self.toDo)
-          self.dismiss()
-        }) {
-          Image(systemName: "plus")
-          .imageScale(.large)
+        .navigationBarItems(leading:
+          Button(action: {
+            print("Done")
+            sharedToDoStore.reload()
+            self.dismiss()
+          }) {
+            Text("Done")
+          },
+          trailing: Button(action: {
+            print("Add")
+            sharedToDoStore.saveToDo(toDo: self.toDo)
+            //self.dismiss()
+          }) {
+            Image(systemName: "plus")
+            .imageScale(.large)
         })
     }
   }
