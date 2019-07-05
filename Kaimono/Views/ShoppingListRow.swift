@@ -20,19 +20,19 @@ struct ShoppingListRow : View {
           .padding(4)
         Text(toDo.description)
           .font(.title)
-          .fontWeight(.semibold)
+          .fontWeight(.regular)
           .strikethrough()
           .color(.secondary)
           .padding(4)
       } else {
         Image(systemName: "circle")
           .imageScale(.large)
-          .foregroundColor(.accentColor)
+          .foregroundColor(.primary)
           .padding(4)
         Text(toDo.description)
           .font(.title)
-          .fontWeight(.semibold)
-          .color(.accentColor)
+          .fontWeight(.regular)
+          .color(.primary)
           .padding(4)
       }
       Spacer()
@@ -47,7 +47,7 @@ struct ShoppingListRow : View {
 #if DEBUG
 struct ShoppingListRow_Previews : PreviewProvider {
   static var previews: some View {
-    ShoppingListRow(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "true", shoppingCategory: "Vegetables"))
+    ShoppingListRow(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "false", shoppingCategory: "Vegetables"))
   }
 }
 #endif

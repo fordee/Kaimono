@@ -9,23 +9,20 @@
 import SwiftUI
 
 struct ShoppingDetails : View {
-  @State var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
+  @State private var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
   @Environment(\.isPresented) private var isPresented
   
   @ObjectBinding var frequentItemStore = FrequentItemsStore()
-  
+
   var body: some View {
     NavigationView {
       VStack { // Can't use a List in a Form
         TextField("Shopping Item", text: $toDo.description)
+          .font(.title)
           .padding()
         
         List (frequentItemStore.frequentItemsList) { item in
-          Text(item.shoppingItem)
-            .tapAction {
-              print("tapped \(item.shoppingItem)")
-              self.toDo = ToDo(category: "Shopping", description: item.shoppingItem, done: "false", shoppingCategory: item.category ?? "No Category")
-            }
+          self.FrequentItemsRow(item)
         }
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
@@ -48,7 +45,18 @@ struct ShoppingDetails : View {
     }
   }
   
-  func dismiss() {
+  
+  private func FrequentItemsRow(_ item: FrequentItem) -> some View {
+    Text(item.shoppingItem)
+      .font(.title)
+      .fontWeight(.regular)
+      .tapAction {
+        print("tapped \(item.shoppingItem)")
+        self.toDo = ToDo(category: "Shopping", description: item.shoppingItem, done: "false", shoppingCategory: item.category ?? "No Category")
+    }
+  }
+  
+  private func dismiss() {
     isPresented?.value = false
   }
 }

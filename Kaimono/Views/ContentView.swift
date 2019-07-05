@@ -15,6 +15,8 @@ struct ContentView : View {
     Group {
       if !store.loaded {
         Text("Loading...")
+          .font(.title)
+          .fontWeight(.regular)
       } else {
         NavigationView {
           ShoppingListView(toDos: store.shoppingList)
