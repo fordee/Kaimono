@@ -16,6 +16,7 @@
 		493F207222C5784A00C38D34 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207122C5784A00C38D34 /* ToDo.swift */; };
 		493F207422C5792000C38D34 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207322C5792000C38D34 /* Store.swift */; };
 		493F207F22C6A2FE00C38D34 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207E22C6A2FE00C38D34 /* Resource.swift */; };
+		495F9D1E22E62FF50030A973 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F9D1D22E62FF50030A973 /* ApiService.swift */; };
 		4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99122C558CA00BA58AC /* AppDelegate.swift */; };
 		4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99322C558CA00BA58AC /* SceneDelegate.swift */; };
 		4992E99622C558CA00BA58AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99522C558CA00BA58AC /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 		493F207322C5792000C38D34 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		493F207522C5A4D400C38D34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		493F207E22C6A2FE00C38D34 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		495F9D1D22E62FF50030A973 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiService.swift; path = ../../../../../../../System/Volumes/Data/Users/fordee/Documents/dev/Kaimono/Kaimono/Network/ApiService.swift; sourceTree = "<group>"; };
 		4992E98E22C558CA00BA58AC /* Kaimono.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kaimono.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4992E99122C558CA00BA58AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4992E99322C558CA00BA58AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				4915255222CBC27100B57D41 /* RemoteEndpoint.swift */,
 				493F207E22C6A2FE00C38D34 /* Resource.swift */,
 				493F207322C5792000C38D34 /* Store.swift */,
+				495F9D1D22E62FF50030A973 /* ApiService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				49063BE322C6AE1700E1A2C9 /* ShoppingListView.swift in Sources */,
 				49063BE522C6AE7B00E1A2C9 /* ShoppingDetails.swift in Sources */,
+				495F9D1E22E62FF50030A973 /* ApiService.swift in Sources */,
 				4915255322CBC27100B57D41 /* RemoteEndpoint.swift in Sources */,
 				493F207422C5792000C38D34 /* Store.swift in Sources */,
 				4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */,

@@ -27,18 +27,19 @@ let allFrequentItems =  Endpoint<[FrequentItem]>(json: .get, url: URL(string: ap
 let sharedToDoStore = ToDoStore()
 let sharedFrequentItemsStore = FrequentItemsStore()
 
-final class FrequentItemsStore: BindableObject {
-  let didChange: AnyPublisher<[FrequentItem]?, Never>
+final class FrequentItemsStore: ObservableObject {
+  let objectWillChange: AnyPublisher<[FrequentItem]?, Never>
   let sharedFrequentItems = Resource(endpoint: allFrequentItems)
   
   init() {
-    didChange = sharedFrequentItems.didChange.eraseToAnyPublisher()
+    objectWillChange = sharedFrequentItems.objectWillChange.eraseToAnyPublisher()
   }
   
   var frequentItems: [FrequentItem] { sharedFrequentItems.value ?? [] }
   
   var frequentItemsList: [FrequentItem] {
-    Array(frequentItems.sorted().prefix(20))
+    frequentItems.sorted().forEach { print("Category: \($0.category ?? "")") }
+    return Array(frequentItems.sorted().prefix(50))
   }
   
   func reload() {
@@ -47,12 +48,12 @@ final class FrequentItemsStore: BindableObject {
 }
 
 
-final class ToDoStore: BindableObject {
-  let didChange: AnyPublisher<[ToDo]?, Never>
+final class ToDoStore: ObservableObject {
+  let objectWillChange: AnyPublisher<[ToDo]?, Never>
   let sharedToDos = Resource(endpoint: allToDos)
   
   init() {
-    didChange = sharedToDos.didChange.eraseToAnyPublisher()
+    objectWillChange = sharedToDos.objectWillChange.eraseToAnyPublisher()
   }
   
   var loaded: Bool {
@@ -78,23 +79,25 @@ final class ToDoStore: BindableObject {
   func deleteToDo(toDo: ToDo) {
     let deleteString = "/items/\(toDo.description)/Shopping".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
     let deleteEndpoint = Endpoint<ToDo>(json: .delete, url: URL(string: apiEndpointString() + deleteString)!)
-    _ = Resource(endpoint: deleteEndpoint) {
+    URLSession.shared.load(deleteEndpoint) {
+      print($0)
       self.reload() // TODO: Do we want to refresh every time? Probably not.
     }
   }
   
   func saveToDo(toDo: ToDo) {
     let saveToDoEndpoint = Endpoint<ToDo>(json: .post, url: URL(string: apiEndpointString() + "/items")!, body: toDo)
-    _ = Resource(endpoint: saveToDoEndpoint)// {
-      //self.reload()
-   // }
+    URLSession.shared.load(saveToDoEndpoint) {
+      print($0)
+    }
   }
   
   func toggleToDo(toDo: ToDo) {
     let done = toDo.isDone ? "false" : "true"
     let item = ToDo(category: toDo.category, description: toDo.description, done: done, shoppingCategory: toDo.shoppingCategory)
-    let saveToDoEndpoint = Endpoint<ToDo>(json: .post, url: URL(string: apiEndpointString() + "/items")!, body: item)
-    _ = Resource(endpoint: saveToDoEndpoint) {
+    let toggleToDo = Endpoint<ToDo>(json: .post, url: URL(string: apiEndpointString() + "/items")!, body: item)
+    URLSession.shared.load(toggleToDo) {
+      print($0)
       self.reload()
     }
   }

@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ShoppingDetails : View {
   @State private var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
-  @Environment(\.isPresented) private var isPresented
+  @Environment(\.presentationMode) var presentationMode
   
-  @ObjectBinding var frequentItemStore = FrequentItemsStore()
+  @ObservedObject var frequentItemStore = FrequentItemsStore()
 
   var body: some View {
     NavigationView {
@@ -21,15 +21,18 @@ struct ShoppingDetails : View {
           .font(.title)
           .padding()
         
-        List (frequentItemStore.frequentItemsList) { item in
-          self.FrequentItemsRow(item)
+        List {
+          ForEach (frequentItemStore.frequentItemsList) { item in
+            self.FrequentItemsRow(item)
+          }
         }
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
-        .navigationBarItems(leading:
+      .navigationBarItems(
+          leading:
           Button(action: {
             print("Done")
-            sharedToDoStore.reload()
+            //sharedToDoStore.reload()
             self.dismiss()
           }) {
             Text("Done")
@@ -50,14 +53,14 @@ struct ShoppingDetails : View {
     Text(item.shoppingItem)
       .font(.title)
       .fontWeight(.regular)
-      .tapAction {
+      .onTapGesture {
         print("tapped \(item.shoppingItem)")
         self.toDo = ToDo(category: "Shopping", description: item.shoppingItem, done: "false", shoppingCategory: item.category ?? "No Category")
     }
   }
   
   private func dismiss() {
-    isPresented?.value = false
+    presentationMode.value.dismiss()
   }
 }
 

@@ -22,7 +22,7 @@ struct ShoppingListRow : View {
           .font(.title)
           .fontWeight(.regular)
           .strikethrough()
-          .color(.secondary)
+          .foregroundColor(.secondary)
           .padding(4)
       } else {
         Image(systemName: "circle")
@@ -32,12 +32,12 @@ struct ShoppingListRow : View {
         Text(toDo.description)
           .font(.title)
           .fontWeight(.regular)
-          .color(.primary)
+          .foregroundColor(.primary)
           .padding(4)
       }
       Spacer()
     }
-    .tapAction {
+    .onTapGesture {
       print("Tapped \(self.toDo.description)!")
       sharedToDoStore.toggleToDo(toDo: self.toDo)
     }

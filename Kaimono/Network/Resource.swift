@@ -10,39 +10,36 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class Resource<A>: BindableObject {
-  let didChange = PassthroughSubject<A?, Never>()
+final class Resource<A>: ObservableObject {
+  var objectWillChange: AnyPublisher<A?, Never> = Publishers.Sequence<[A?], Never>(sequence: []).eraseToAnyPublisher()
+  @Published var value: A? = nil
   let endpoint: Endpoint<A>
   var completion: (() -> Void)?
-  var value: A? {
-    didSet {
-      DispatchQueue.main.async {
-        self.didChange.send(self.value)
-      }
-    }
-  }
   
   init(endpoint: Endpoint<A>, completion: (() -> Void)? = nil) {
     self.endpoint = endpoint
     self.completion = completion
-    reload()
+    self.objectWillChange = $value.handleEvents(receiveSubscription: { [weak self] sub in
+                guard let s = self else { return }
+                s.reload()
+    }).eraseToAnyPublisher()
   }
   
   func reload() {
-    let configuration = URLSessionConfiguration.default
-    configuration.timeoutIntervalForRequest = 20 * 60 // 20 min
-    let session = URLSession(configuration: configuration)
-    
-    session.load(endpoint) { result in
-      do {
-        self.value = try result.get()
-      } catch let error {
-        print("Error: \(error)")
+    URLSession.shared.load(endpoint) { result in
+      DispatchQueue.main.async {
+        do {
+          self.value = try result.get()
+        } catch let error {
+          print("Error: \(error)")
+        }
       }
       print("endpoint: \(self.endpoint)")
       print("value: \(String(describing: self.value))")
       if let completion = self.completion {
-        completion()
+        DispatchQueue.main.async {
+          completion()
+        }
       }
     }
   }
