@@ -112,14 +112,13 @@
 		4992E99022C558CA00BA58AC /* Kaimono */ = {
 			isa = PBXGroup;
 			children = (
+				49AFC9512307A88C00E77E3E /* Launch */,
+				493F207022C5782B00C38D34 /* Models */,
+				49185F7E22C6FCCF003BB77E /* Network */,
 				49AFC94623073EE700E77E3E /* State */,
 				49AFC94523073ED000E77E3E /* Reducers */,
 				49AFC94423073EB700E77E3E /* Actions */,
 				49185F7F22C6FCF6003BB77E /* Views */,
-				49185F7E22C6FCCF003BB77E /* Network */,
-				493F207022C5782B00C38D34 /* Models */,
-				4992E99122C558CA00BA58AC /* AppDelegate.swift */,
-				4992E99322C558CA00BA58AC /* SceneDelegate.swift */,
 				4992E99722C558CD00BA58AC /* Assets.xcassets */,
 				4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */,
 				4992E99F22C558CD00BA58AC /* Info.plist */,
@@ -161,6 +160,15 @@
 				49AFC94F2307444800E77E3E /* AppState.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		49AFC9512307A88C00E77E3E /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				4992E99122C558CA00BA58AC /* AppDelegate.swift */,
+				4992E99322C558CA00BA58AC /* SceneDelegate.swift */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

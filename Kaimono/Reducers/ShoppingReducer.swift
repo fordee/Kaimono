@@ -14,7 +14,9 @@ func shoppingStateReducer(state: ShoppingState, action: Action) -> ShoppingState
   switch action {
     
   case let action as ShoppingActions.SetAddToDo:
-    state.toDos.append(action.response)
+    if !state.toDos.contains(action.response) {
+      state.toDos.append(action.response)
+    }
   case let action as ShoppingActions.SetToDo:
     state.toDos = action.response
     
@@ -32,20 +34,6 @@ func shoppingStateReducer(state: ShoppingState, action: Action) -> ShoppingState
         state.toDos[index].done = action.todo.done
       }
     }
-    
-    //movies[action.id] = action.movie
-    //        state.recommended[action.movie] = action.response.results.map{ $0.id }
-    //        state = mergeMovies(movies: action.response.results, state: state)
-    //    case let action as MoviesActions.AddToWishlist:
-    //        state.wishlist.insert(action.movie)
-    //
-    //        var meta = state.moviesUserMeta[action.movie] ?? MovieUserMeta()
-    //        meta.dateAddedToWishlist = Date()
-    //        state.moviesUserMeta[action.movie] = meta
-    //
-    //    case let action as MoviesActions.RemoveFromWishlist:
-    //        state.wishlist.remove(action.movie)
-    //        state.moviesUserMeta[action.movie]?.dateAddedToWishlist = nil
   
   default:
     break
