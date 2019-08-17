@@ -7,12 +7,16 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
-struct ShoppingDetails : View {
-  @State private var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
+struct AddShoppingItem : View {
+  @EnvironmentObject private var store: Store<AppState>
   @Environment(\.presentationMode) var presentationMode
-  
-  @ObservedObject var frequentItemStore = FrequentItemsStore()
+  @State private var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
+
+  var frequentItemsList: [FrequentItem] {
+    return store.state.shoppingState.frequentItems
+  }
 
   var body: some View {
     NavigationView {
@@ -22,25 +26,23 @@ struct ShoppingDetails : View {
           .padding()
         
         List {
-          ForEach (frequentItemStore.frequentItemsList) { item in
+          ForEach (frequentItemsList) { item in
             self.FrequentItemsRow(item)
           }
         }
+      }.onAppear {
+        self.store.dispatch(action: ShoppingActions.FetchFrequentItems())
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
       .navigationBarItems(
           leading:
           Button(action: {
-            print("Done")
-            //sharedToDoStore.reload()
             self.dismiss()
           }) {
             Text("Done")
           },
           trailing: Button(action: {
-            print("Add")
-            sharedToDoStore.saveToDo(toDo: self.toDo)
-            //self.dismiss()
+            self.store.dispatch(action: ShoppingActions.AddToDo(item: self.toDo))
           }) {
             Image(systemName: "plus")
             .imageScale(.large)
@@ -67,7 +69,7 @@ struct ShoppingDetails : View {
 #if DEBUG
 struct ShoppingDetails_Previews : PreviewProvider {
   static var previews: some View {
-    ShoppingDetails()
+    AddShoppingItem()
   }
 }
 #endif

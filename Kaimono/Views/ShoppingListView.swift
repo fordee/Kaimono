@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
 struct ShoppingListView : View {
+  @EnvironmentObject private var store: Store<AppState>
   
   @State var showingShoppingDetails = false
   
@@ -26,30 +28,31 @@ struct ShoppingListView : View {
       ShoppingListRow(toDo: toDo)
     }
     .navigationBarTitle(Text("Shopping List"))
-      .navigationBarItems(leading:
-        HStack {
+    .navigationBarItems(leading:
+      HStack {
+        Button(action: {
+          self.store.dispatch(action: ShoppingActions.FetchToDos())
+        }) {
+          Image(systemName: "arrow.clockwise")
+            .imageScale(.large)
+        }.padding()
           Button(action: {
-            print("Refresh tapped!")
-            sharedToDoStore.reload()
-          }) {
-            Image(systemName: "arrow.clockwise")
-              .imageScale(.large)
-          }.padding()
-          Button(action: {
-            print("Delete")
-            sharedToDoStore.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
+            self.deleteToDos(items: self.toDos.filter { $0.done == "true" })
           }, label: {
-            Image(systemName: "trash")
-              .imageScale(.large)
+          Image(systemName: "trash")
+            .imageScale(.large)
           }).padding()
-        },
-        trailing: detailsButton)
-      .sheet(isPresented: $showingShoppingDetails, onDismiss: {
-        sharedToDoStore.reload()
-      }, content:  {
-        ShoppingDetails()
-      })
-      
+      },
+      trailing: detailsButton)
+      .sheet(isPresented: $showingShoppingDetails)  {
+        AddShoppingItem().environmentObject(self.store)
+      }
+  }
+  
+  func deleteToDos(items: [ToDo]) {
+    for item in items {
+      self.store.dispatch(action: ShoppingActions.DeleteToDo(item: item))
+    }
   }
 }
 

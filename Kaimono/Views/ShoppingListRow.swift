@@ -7,8 +7,11 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
 struct ShoppingListRow : View {
+  @EnvironmentObject private var store: Store<AppState>
+  
   let toDo: ToDo
   
   var body: some View {
@@ -38,8 +41,7 @@ struct ShoppingListRow : View {
       Spacer()
     }
     .onTapGesture {
-      print("Tapped \(self.toDo.description)!")
-      sharedToDoStore.toggleToDo(toDo: self.toDo)
+      self.store.dispatch(action: ShoppingActions.ToggleToDo(item: self.toDo))
     }
   }
 }

@@ -7,21 +7,20 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
 struct ContentView : View {
-  @ObservedObject var store = sharedToDoStore
+  @EnvironmentObject private var store: Store<AppState>
+  
+  var shoppingList: [ToDo] {
+    return store.state.shoppingState.toDos//.moviesState.movies[movieId]
+  }
   
   var body: some View {
-    Group {
-      if !store.loaded {
-        Text("Loading...")
-          .font(.title)
-          .fontWeight(.regular)
-      } else {
-        NavigationView {
-          ShoppingListView(toDos: store.shoppingList)
-        }
-      }
+    NavigationView {
+      ShoppingListView(toDos: shoppingList)
+    }.onAppear {
+      self.store.dispatch(action: ShoppingActions.FetchToDos())
     }
   }
 }
