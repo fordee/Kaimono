@@ -32,7 +32,6 @@ struct ShoppingListView : View {
         HStack {
           Button(action: {
             print("Refresh tapped!")
-            //sharedToDoStore.reload()
             self.store.dispatch(action: ShoppingActions.FetchToDos())
           }) {
             Image(systemName: "arrow.clockwise")
@@ -40,7 +39,6 @@ struct ShoppingListView : View {
           }.padding()
           Button(action: {
             print("Delete")
-            //sharedToDoStore.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
             self.deleteToDos(items: self.toDos.filter { $0.done == "true" })
           }, label: {
             Image(systemName: "trash")
@@ -48,12 +46,9 @@ struct ShoppingListView : View {
           }).padding()
         },
         trailing: detailsButton)
-      .sheet(isPresented: $showingShoppingDetails, onDismiss: {
-        //sharedToDoStore.reload()
-        //self.store.dispatch(action: ShoppingActions.FetchToDos())
-      }, content:  {
+      .sheet(isPresented: $showingShoppingDetails)  {
         ShoppingDetails().environmentObject(self.store)
-      })
+      }
       
   }
   

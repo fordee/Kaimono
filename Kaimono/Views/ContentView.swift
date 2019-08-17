@@ -12,8 +12,6 @@ import SwiftUIFlux
 struct ContentView : View {
   @EnvironmentObject private var store: Store<AppState>
   
-  //@ObservedObject var store = sharedToDoStore
-  
   var shoppingList: [ToDo] {
     return store.state.shoppingState.toDos//.moviesState.movies[movieId]
   }

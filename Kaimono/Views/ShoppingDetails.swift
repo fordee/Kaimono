@@ -42,14 +42,12 @@ struct ShoppingDetails : View {
           leading:
           Button(action: {
             print("Done")
-            //sharedToDoStore.reload()
             self.dismiss()
           }) {
             Text("Done")
           },
           trailing: Button(action: {
             print("Add")
-            //sharedToDoStore.saveToDo(toDo: self.toDo)
             self.store.dispatch(action: ShoppingActions.AddToDo(item: self.toDo))
           }) {
             Image(systemName: "plus")

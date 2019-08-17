@@ -42,7 +42,6 @@ struct ShoppingListRow : View {
     }
     .onTapGesture {
       print("Tapped \(self.toDo.description)!")
-      //sharedToDoStore.toggleToDo(toDo: self.toDo)
       self.store.dispatch(action: ShoppingActions.ToggleToDo(item: self.toDo))
     }
   }
