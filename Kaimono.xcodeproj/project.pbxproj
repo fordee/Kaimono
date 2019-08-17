@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,12 @@
 		4992E99822C558CD00BA58AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99722C558CD00BA58AC /* Assets.xcassets */; };
 		4992E99B22C558CD00BA58AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */; };
 		4992E99E22C558CD00BA58AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */; };
+		49AFC94323073E8D00E77E3E /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = 49AFC94223073E8D00E77E3E /* SwiftUIFlux */; };
+		49AFC94823073F0900E77E3E /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94723073F0900E77E3E /* AppReducer.swift */; };
+		49AFC94A23073F3F00E77E3E /* ShoppingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94923073F3F00E77E3E /* ShoppingReducer.swift */; };
+		49AFC94C2307400400E77E3E /* ShoppingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94B2307400400E77E3E /* ShoppingActions.swift */; };
+		49AFC94E2307436400E77E3E /* ShoppingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94D2307436400E77E3E /* ShoppingState.swift */; };
+		49AFC9502307444800E77E3E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94F2307444800E77E3E /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +51,11 @@
 		4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4992E99D22C558CD00BA58AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4992E99F22C558CD00BA58AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49AFC94723073F0900E77E3E /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		49AFC94923073F3F00E77E3E /* ShoppingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingReducer.swift; sourceTree = "<group>"; };
+		49AFC94B2307400400E77E3E /* ShoppingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingActions.swift; sourceTree = "<group>"; };
+		49AFC94D2307436400E77E3E /* ShoppingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingState.swift; sourceTree = "<group>"; };
+		49AFC94F2307444800E77E3E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AFC94323073E8D00E77E3E /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +121,9 @@
 		4992E99022C558CA00BA58AC /* Kaimono */ = {
 			isa = PBXGroup;
 			children = (
+				49AFC94623073EE700E77E3E /* State */,
+				49AFC94523073ED000E77E3E /* Reducers */,
+				49AFC94423073EB700E77E3E /* Actions */,
 				49185F7F22C6FCF6003BB77E /* Views */,
 				49185F7E22C6FCCF003BB77E /* Network */,
 				493F207022C5782B00C38D34 /* Models */,
@@ -131,6 +146,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		49AFC94423073EB700E77E3E /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				49AFC94B2307400400E77E3E /* ShoppingActions.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		49AFC94523073ED000E77E3E /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				49AFC94723073F0900E77E3E /* AppReducer.swift */,
+				49AFC94923073F3F00E77E3E /* ShoppingReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		49AFC94623073EE700E77E3E /* State */ = {
+			isa = PBXGroup;
+			children = (
+				49AFC94D2307436400E77E3E /* ShoppingState.swift */,
+				49AFC94F2307444800E77E3E /* AppState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +189,7 @@
 			);
 			name = Kaimono;
 			packageProductDependencies = (
+				49AFC94223073E8D00E77E3E /* SwiftUIFlux */,
 			);
 			productName = Kaimono;
 			productReference = 4992E98E22C558CA00BA58AC /* Kaimono.app */;
@@ -178,6 +220,7 @@
 			);
 			mainGroup = 4992E98522C558C900BA58AC;
 			packageReferences = (
+				49AFC94123073E8D00E77E3E /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
 			);
 			productRefGroup = 4992E98F22C558CA00BA58AC /* Products */;
 			projectDirPath = "";
@@ -213,12 +256,17 @@
 				4915255322CBC27100B57D41 /* RemoteEndpoint.swift in Sources */,
 				493F207422C5792000C38D34 /* Store.swift in Sources */,
 				4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */,
+				49AFC9502307444800E77E3E /* AppState.swift in Sources */,
 				493F207222C5784A00C38D34 /* ToDo.swift in Sources */,
+				49AFC94E2307436400E77E3E /* ShoppingState.swift in Sources */,
+				49AFC94823073F0900E77E3E /* AppReducer.swift in Sources */,
 				4937A95E22CD1741001D458F /* ShoppingListRow.swift in Sources */,
 				4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */,
+				49AFC94A23073F3F00E77E3E /* ShoppingReducer.swift in Sources */,
 				4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */,
 				4992E99622C558CA00BA58AC /* ContentView.swift in Sources */,
 				493F207F22C6A2FE00C38D34 /* Resource.swift in Sources */,
+				49AFC94C2307400400E77E3E /* ShoppingActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +460,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49AFC94123073E8D00E77E3E /* XCRemoteSwiftPackageReference "SwiftUIFlux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Dimillian/SwiftUIFlux";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49AFC94223073E8D00E77E3E /* SwiftUIFlux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49AFC94123073E8D00E77E3E /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
+			productName = SwiftUIFlux;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4992E98622C558C900BA58AC /* Project object */;
 }

@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
 struct ShoppingListView : View {
+  @EnvironmentObject private var store: Store<AppState>
   
   @State var showingShoppingDetails = false
   
@@ -30,14 +32,16 @@ struct ShoppingListView : View {
         HStack {
           Button(action: {
             print("Refresh tapped!")
-            sharedToDoStore.reload()
+            //sharedToDoStore.reload()
+            self.store.dispatch(action: ShoppingActions.FetchToDos())
           }) {
             Image(systemName: "arrow.clockwise")
               .imageScale(.large)
           }.padding()
           Button(action: {
             print("Delete")
-            sharedToDoStore.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
+            //sharedToDoStore.deleteToDos(toDos: self.toDos.filter { $0.done == "true"} )
+            self.deleteToDos(items: self.toDos.filter { $0.done == "true" })
           }, label: {
             Image(systemName: "trash")
               .imageScale(.large)
@@ -45,11 +49,18 @@ struct ShoppingListView : View {
         },
         trailing: detailsButton)
       .sheet(isPresented: $showingShoppingDetails, onDismiss: {
-        sharedToDoStore.reload()
+        //sharedToDoStore.reload()
+        //self.store.dispatch(action: ShoppingActions.FetchToDos())
       }, content:  {
-        ShoppingDetails()
+        ShoppingDetails().environmentObject(self.store)
       })
       
+  }
+  
+  func deleteToDos(items: [ToDo]) {
+    for item in items {
+      self.store.dispatch(action: ShoppingActions.DeleteToDo(item: item))
+    }
   }
 }
 

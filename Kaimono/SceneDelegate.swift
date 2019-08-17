@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import SwiftUIFlux
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
@@ -22,11 +23,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Use a UIHostingController as window root view controller
     if let windowScene = scene as? UIWindowScene {
       let window = UIWindow(windowScene: windowScene)
-      window.rootViewController = UIHostingController(rootView: ContentView())
+      
+      let controller = UIHostingController(rootView: ContentView().environmentObject(store))
+
+      window.rootViewController = controller
       self.window = window
       window.makeKeyAndVisible()
     }
   }
+  
+  let store = Store<AppState>(reducer: appStateReducer,
+                              middleware: [],
+                              state: AppState())
   
   func sceneDidDisconnect(_ scene: UIScene) {
     // Called as the scene is being released by the system.
