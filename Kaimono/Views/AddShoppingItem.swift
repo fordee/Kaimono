@@ -9,17 +9,13 @@
 import SwiftUI
 import SwiftUIFlux
 
-struct ShoppingDetails : View {
+struct AddShoppingItem : View {
   @EnvironmentObject private var store: Store<AppState>
-  
-  @State private var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
   @Environment(\.presentationMode) var presentationMode
-  
-  
-  //@ObservedObject var frequentItemStore = FrequentItemsStore()
-  
+  @State private var toDo: ToDo = ToDo(category: "Shopping", description: "", done: "false", shoppingCategory: "None")
+
   var frequentItemsList: [FrequentItem] {
-    return store.state.shoppingState.frequentItems//.moviesState.movies[movieId]
+    return store.state.shoppingState.frequentItems
   }
 
   var body: some View {
@@ -30,7 +26,7 @@ struct ShoppingDetails : View {
           .padding()
         
         List {
-          ForEach (frequentItemsList/*frequentItemStore.frequentItemsList*/) { item in
+          ForEach (frequentItemsList) { item in
             self.FrequentItemsRow(item)
           }
         }
@@ -41,13 +37,11 @@ struct ShoppingDetails : View {
       .navigationBarItems(
           leading:
           Button(action: {
-            print("Done")
             self.dismiss()
           }) {
             Text("Done")
           },
           trailing: Button(action: {
-            print("Add")
             self.store.dispatch(action: ShoppingActions.AddToDo(item: self.toDo))
           }) {
             Image(systemName: "plus")
@@ -75,7 +69,7 @@ struct ShoppingDetails : View {
 #if DEBUG
 struct ShoppingDetails_Previews : PreviewProvider {
   static var previews: some View {
-    ShoppingDetails()
+    AddShoppingItem()
   }
 }
 #endif

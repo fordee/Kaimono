@@ -28,28 +28,25 @@ struct ShoppingListView : View {
       ShoppingListRow(toDo: toDo)
     }
     .navigationBarTitle(Text("Shopping List"))
-      .navigationBarItems(leading:
-        HStack {
+    .navigationBarItems(leading:
+      HStack {
+        Button(action: {
+          self.store.dispatch(action: ShoppingActions.FetchToDos())
+        }) {
+          Image(systemName: "arrow.clockwise")
+            .imageScale(.large)
+        }.padding()
           Button(action: {
-            print("Refresh tapped!")
-            self.store.dispatch(action: ShoppingActions.FetchToDos())
-          }) {
-            Image(systemName: "arrow.clockwise")
-              .imageScale(.large)
-          }.padding()
-          Button(action: {
-            print("Delete")
             self.deleteToDos(items: self.toDos.filter { $0.done == "true" })
           }, label: {
-            Image(systemName: "trash")
-              .imageScale(.large)
+          Image(systemName: "trash")
+            .imageScale(.large)
           }).padding()
-        },
-        trailing: detailsButton)
+      },
+      trailing: detailsButton)
       .sheet(isPresented: $showingShoppingDetails)  {
-        ShoppingDetails().environmentObject(self.store)
+        AddShoppingItem().environmentObject(self.store)
       }
-      
   }
   
   func deleteToDos(items: [ToDo]) {

@@ -41,7 +41,6 @@ struct ShoppingListRow : View {
       Spacer()
     }
     .onTapGesture {
-      print("Tapped \(self.toDo.description)!")
       self.store.dispatch(action: ShoppingActions.ToggleToDo(item: self.toDo))
     }
   }

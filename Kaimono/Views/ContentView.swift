@@ -17,19 +17,11 @@ struct ContentView : View {
   }
   
   var body: some View {
-//    Group {
-//      if !store.loaded {
-//        Text("Loading...")
-//          .font(.title)
-//          .fontWeight(.regular)
-//      } else {
-        NavigationView {
-          ShoppingListView(toDos: shoppingList)
-        }.onAppear {
-          self.store.dispatch(action: ShoppingActions.FetchToDos())
-        }
-//      }
-//    }
+    NavigationView {
+      ShoppingListView(toDos: shoppingList)
+    }.onAppear {
+      self.store.dispatch(action: ShoppingActions.FetchToDos())
+    }
   }
 }
 

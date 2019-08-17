@@ -12,6 +12,10 @@ import SwiftUIFlux
 struct ShoppingState: FluxState, Codable {
   var toDos: [ToDo] = []
   var frequentItems: [FrequentItem] = []
+  
+  var isLoaded: Bool {
+    return !toDos.isEmpty
+  }
 
   enum CodingKeys: String, CodingKey {
     case toDos

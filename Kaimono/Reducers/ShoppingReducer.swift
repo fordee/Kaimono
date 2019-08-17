@@ -25,7 +25,7 @@ func shoppingStateReducer(state: ShoppingState, action: Action) -> ShoppingState
     
   case let action as ShoppingActions.SetDeleteToDo:
     if let index = state.toDos.firstIndex(of: action.response) {
-        state.toDos.remove(at: index)
+      state.toDos.remove(at: index)
     }
     
   case let action as ShoppingActions.SetToggleToDo:

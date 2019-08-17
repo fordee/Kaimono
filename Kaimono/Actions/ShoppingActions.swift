@@ -54,14 +54,12 @@ struct ShoppingActions {
       let toDo = ToDo(category: item.category, description: item.description, done: done, shoppingCategory: item.shoppingCategory)
       let body = try! JSONEncoder().encode(toDo)
       
-      dispatch(SetToggleToDo(todo: toDo))
-      
       APIService.shared.Request(method: .put, endpoint: .toDos, params: nil, body: body)
       {
         (result: Result<String, APIService.APIError>) in
         switch result {
         case let .success(response):
-          //dispatch(SetFrequentItems(response: response.sorted()))
+          dispatch(SetToggleToDo(todo: toDo))
           print(response)
           break
         case .failure(_):
@@ -75,16 +73,13 @@ struct ShoppingActions {
     let item: ToDo
     
     func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
-      
-      dispatch(SetAddToDo(response: item))
-      
       let body = try! JSONEncoder().encode(item)
       
       APIService.shared.Request(method: .post, endpoint: .toDos, params: nil, body: body) {
         (result: Result<String, APIService.APIError>) in
         switch result {
         case let .success(response):
-          //dispatch(SetFrequentItems(response: response.sorted()))
+          dispatch(SetAddToDo(response: self.item))
           print(response)
           break
         case .failure(_):
@@ -99,13 +94,11 @@ struct ShoppingActions {
     let item: ToDo
     
     func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
-      
-      dispatch(SetDeleteToDo(response: item))
-      
       APIService.shared.Request(method: .delete, endpoint: .deleteToDo(item), params: nil, body: nil) {
         (result: Result<String, APIService.APIError>) in
         switch result {
         case let .success(response):
+          dispatch(SetDeleteToDo(response: self.item))
           print(response)
         case .failure(_):
           break
