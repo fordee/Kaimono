@@ -13,7 +13,7 @@ struct ContentView : View {
   @EnvironmentObject private var store: Store<AppState>
   
   var shoppingList: [ToDo] {
-    return store.state.shoppingState.toDos//.moviesState.movies[movieId]
+    return store.state.shoppingState.toDos
   }
   
   var body: some View {
