@@ -20,10 +20,11 @@ struct AddShoppingItem : View {
 
   var body: some View {
     NavigationView {
-      VStack { // Can't use a List in a Form
+      VStack {
         TextField("Shopping Item", text: $toDo.description)
           .font(.title)
-          .padding()
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .padding(.top).padding(.leading).padding(.trailing).padding(.bottom, 4)
         
         List {
           ForEach (frequentItemsList) { item in

@@ -12,7 +12,6 @@ import SwiftUIFlux
 func appStateReducer(state: AppState, action: Action) -> AppState {
     var state = state
     state.shoppingState = shoppingStateReducer(state: state.shoppingState, action: action)
-    //state.peoplesState = peoplesStateReducer(state: state.peoplesState, action: action)
     return state
 }
 
