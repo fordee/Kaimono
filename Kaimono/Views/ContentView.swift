@@ -17,7 +17,12 @@ struct ContentView : View {
   }
   
   var body: some View {
-    NavigationView {
+    // for navigation bar title color
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+    // For navigation bar background color
+    UINavigationBar.appearance().backgroundColor = .systemYellow
+    
+    return NavigationView {
       ShoppingListView(toDos: shoppingList)
     }.onAppear {
       self.store.dispatch(action: ShoppingActions.FetchToDos())
@@ -26,9 +31,14 @@ struct ContentView : View {
 }
 
 #if DEBUG
+
+let store = Store<AppState>(reducer: appStateReducer,
+                            middleware: [],
+                            state: AppState())
+
 struct ContentView_Previews : PreviewProvider {
   static var previews: some View {
-    return ContentView()
+    return ContentView().environmentObject(store)
   }
 }
 #endif

@@ -61,7 +61,7 @@ struct ShoppingListView_Previews : PreviewProvider {
   static var previews: some View {
     NavigationView {
       ShoppingListView(toDos: [ToDo(category: "Shopping", description: "Lettuce", done: "true", shoppingCategory: "Vegetables"),
-                               ToDo(category: "Shopping", description: "Pototoes", done: "false", shoppingCategory: "Vegetables")])
+                               ToDo(category: "Shopping", description: "Pototoes", done: "false", shoppingCategory: "Vegetables")]).environmentObject(store)
     }
   }
 }

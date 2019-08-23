@@ -19,7 +19,13 @@ struct AddShoppingItem : View {
   }
 
   var body: some View {
-    NavigationView {
+    // for navigation bar title color
+    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+    // For navigation bar background color
+    UINavigationBar.appearance().backgroundColor = .systemYellow
+    UINavigationBar.appearance().isOpaque = true
+    
+    return NavigationView {
       VStack {
         TextField("Shopping Item", text: $toDo.description)
           .font(.title)
@@ -63,14 +69,15 @@ struct AddShoppingItem : View {
   }
   
   private func dismiss() {
-    presentationMode.value.dismiss()
+    presentationMode.wrappedValue.dismiss()
   }
 }
 
 #if DEBUG
 struct ShoppingDetails_Previews : PreviewProvider {
+  
   static var previews: some View {
-    AddShoppingItem()
+    AddShoppingItem().environmentObject(store)
   }
 }
 #endif

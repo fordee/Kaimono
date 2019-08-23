@@ -50,7 +50,7 @@ struct ShoppingListRow : View {
 #if DEBUG
 struct ShoppingListRow_Previews : PreviewProvider {
   static var previews: some View {
-    ShoppingListRow(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "false", shoppingCategory: "Vegetables"))
+    ShoppingListRow(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "false", shoppingCategory: "Vegetables")).environmentObject(store)
   }
 }
 #endif
