@@ -18,15 +18,16 @@ struct ContentView : View {
   
   var body: some View {
     // for navigation bar title color
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+    //UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
     // For navigation bar background color
-    UINavigationBar.appearance().backgroundColor = .systemYellow
+    //UINavigationBar.appearance().backgroundColor = .systemYellow
     
     return NavigationView {
       ShoppingListView(toDos: shoppingList)
     }.onAppear {
       self.store.dispatch(action: ShoppingActions.FetchToDos())
     }
+    .navigationViewStyle(StackNavigationViewStyle())
   }
 }
 

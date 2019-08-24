@@ -22,7 +22,7 @@ struct ShoppingListRow : View {
           .foregroundColor(.secondary)
           .padding(4)
         Text(toDo.description)
-          .font(.title)
+          .font(.custom("American Typewriter", size: 24))
           .fontWeight(.regular)
           .strikethrough()
           .foregroundColor(.secondary)
@@ -33,13 +33,14 @@ struct ShoppingListRow : View {
           .foregroundColor(.primary)
           .padding(4)
         Text(toDo.description)
-          .font(.title)
+          .font(.custom("American Typewriter", size: 24))
           .fontWeight(.regular)
           .foregroundColor(.primary)
           .padding(4)
       }
       Spacer()
     }
+    //.background(Color.yellow)
     .onTapGesture {
       print("Tapped \(self.toDo.description)")
       self.store.dispatch(action: ShoppingActions.ToggleToDo(item: self.toDo))

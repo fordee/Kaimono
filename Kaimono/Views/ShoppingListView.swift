@@ -26,7 +26,9 @@ struct ShoppingListView : View {
   var body: some View {
     List(toDos.sorted()) { toDo in
       ShoppingListRow(toDo: toDo)
+      //Text(toDo.description)
     }
+    //.listRowBackground(Color.yellow)
     .navigationBarTitle(Text("Shopping List"))
     .navigationBarItems(leading:
       HStack {

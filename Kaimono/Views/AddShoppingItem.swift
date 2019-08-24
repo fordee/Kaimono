@@ -28,10 +28,10 @@ struct AddShoppingItem : View {
     return NavigationView {
       VStack {
         TextField("Shopping Item", text: $toDo.description)
-          .font(.title)
+          .font(.custom("American Typewriter", size: 24))
           .textFieldStyle(RoundedBorderTextFieldStyle())
-          .padding(.top).padding(.leading).padding(.trailing).padding(.bottom, 4)
-        
+          .padding(.top, 8).padding(.leading).padding(.trailing).padding(.bottom, 8)
+          .background(Color.yellow)
         List {
           ForEach (frequentItemsList) { item in
             self.FrequentItemsRow(item)
@@ -54,13 +54,13 @@ struct AddShoppingItem : View {
             Image(systemName: "plus")
             .imageScale(.large)
         })
-    }
+    }.navigationViewStyle(StackNavigationViewStyle())
   }
   
   
   private func FrequentItemsRow(_ item: FrequentItem) -> some View {
     Text(item.shoppingItem)
-      .font(.title)
+      .font(.custom("American Typewriter", size: 24))
       .fontWeight(.regular)
       .onTapGesture {
         print("tapped \(item.shoppingItem)")
