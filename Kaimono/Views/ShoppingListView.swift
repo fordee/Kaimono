@@ -24,11 +24,11 @@ struct ShoppingListView : View {
   
   let toDos: [ToDo]
   var body: some View {
-    List(toDos.sorted()) { toDo in
-      ShoppingListRow(toDo: toDo)
-      //Text(toDo.description)
+    List {
+      ForEach (toDos.sorted()) { toDo in
+        ShoppingListRow(toDo: toDo)
+      }.listRowBackground(Color("back"))
     }
-    //.listRowBackground(Color.yellow)
     .navigationBarTitle(Text("Shopping List"))
     .navigationBarItems(leading:
       HStack {

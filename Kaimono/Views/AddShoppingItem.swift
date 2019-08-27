@@ -23,7 +23,6 @@ struct AddShoppingItem : View {
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
     // For navigation bar background color
     UINavigationBar.appearance().backgroundColor = .systemYellow
-    UINavigationBar.appearance().isOpaque = true
     
     return NavigationView {
       VStack {
@@ -31,23 +30,24 @@ struct AddShoppingItem : View {
           .font(.custom("American Typewriter", size: 24))
           .textFieldStyle(RoundedBorderTextFieldStyle())
           .padding(.top, 8).padding(.leading).padding(.trailing).padding(.bottom, 8)
-          .background(Color.yellow)
+          .background(Color("back"))
+          .foregroundColor(Color("text"))
         List {
           ForEach (frequentItemsList) { item in
             self.FrequentItemsRow(item)
-          }
+          }.listRowBackground(Color("back"))
         }
       }.onAppear {
         self.store.dispatch(action: ShoppingActions.FetchFrequentItems())
       }
       .navigationBarTitle(Text("Add Shopping Item"), displayMode: .inline)
       .navigationBarItems(
-          leading:
-          Button(action: {
-            self.dismiss()
-          }) {
-            Text("Done")
-          },
+//          leading:
+//          Button(action: {
+//            self.dismiss()
+//          }) {
+//            Text("Done")
+//          },
           trailing: Button(action: {
             self.store.dispatch(action: ShoppingActions.AddToDo(item: self.toDo))
           }) {
@@ -62,6 +62,7 @@ struct AddShoppingItem : View {
     Text(item.shoppingItem)
       .font(.custom("American Typewriter", size: 24))
       .fontWeight(.regular)
+      .foregroundColor(Color("text"))
       .onTapGesture {
         print("tapped \(item.shoppingItem)")
         self.toDo = ToDo(category: "Shopping", description: item.shoppingItem, done: "false", shoppingCategory: item.category ?? "No Category")
@@ -77,7 +78,12 @@ struct AddShoppingItem : View {
 struct ShoppingDetails_Previews : PreviewProvider {
   
   static var previews: some View {
-    AddShoppingItem().environmentObject(store)
+    Group {
+      AddShoppingItem().environmentObject(store)
+        .environment(\.colorScheme, .light)
+      AddShoppingItem().environmentObject(store)
+        .environment(\.colorScheme, .dark)
+    }
   }
 }
 #endif

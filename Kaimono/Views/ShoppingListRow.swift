@@ -30,12 +30,12 @@ struct ShoppingListRow : View {
       } else {
         Image(systemName: "circle")
           .imageScale(.large)
-          .foregroundColor(.primary)
+          .foregroundColor(Color("text"))
           .padding(4)
         Text(toDo.description)
           .font(.custom("American Typewriter", size: 24))
           .fontWeight(.regular)
-          .foregroundColor(.primary)
+          .foregroundColor(Color("text"))
           .padding(4)
       }
       Spacer()
