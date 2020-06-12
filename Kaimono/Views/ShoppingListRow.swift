@@ -7,51 +7,50 @@
 //
 
 import SwiftUI
-import SwiftUIFlux
+import ComposableArchitecture
 
 struct ShoppingListRow : View {
-  @EnvironmentObject private var store: Store<AppState>
   
-  let toDo: ToDo
+  let store: Store<ToDo, TodoAction>
   
   var body: some View {
-    HStack {
-      if toDo.isDone {
-        Image(systemName: "checkmark.circle.fill")
-          .imageScale(.large)
-          .foregroundColor(.secondary)
-          .padding(4)
-        Text(toDo.description)
-          .font(.custom("American Typewriter", size: 24))
-          .fontWeight(.regular)
-          .strikethrough()
-          .foregroundColor(.secondary)
-          .padding(4)
-      } else {
-        Image(systemName: "circle")
-          .imageScale(.large)
-          .foregroundColor(Color("text"))
-          .padding(4)
-        Text(toDo.description)
-          .font(.custom("American Typewriter", size: 24))
-          .fontWeight(.regular)
-          .foregroundColor(Color("text"))
-          .padding(4)
+    WithViewStore(self.store) { viewStore in
+      HStack {
+        if viewStore.isDone {
+          Image(systemName: "checkmark.circle.fill")
+            .imageScale(.large)
+            .foregroundColor(.secondary)
+            .padding(4)
+          Text(viewStore.description)
+            .font(.custom("American Typewriter", size: 24))
+            .fontWeight(.regular)
+            .strikethrough()
+            .foregroundColor(.secondary)
+            .padding(4)
+        } else {
+          Image(systemName: "circle")
+            .imageScale(.large)
+            .foregroundColor(Color("text"))
+            .padding(4)
+          Text(viewStore.description)
+            .font(.custom("American Typewriter", size: 24))
+            .fontWeight(.regular)
+            .foregroundColor(Color("text"))
+            .padding(4)
+        }
+        Spacer()
       }
-      Spacer()
-    }
-    //.background(Color.yellow)
-    .onTapGesture {
-      print("Tapped \(self.toDo.description)")
-      self.store.dispatch(action: ShoppingActions.ToggleToDo(item: self.toDo))
+      .onTapGesture {
+        viewStore.send(.checkboxTapped)
+      }
     }
   }
 }
 
-#if DEBUG
-struct ShoppingListRow_Previews : PreviewProvider {
-  static var previews: some View {
-    ShoppingListRow(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "false", shoppingCategory: "Vegetables")).environmentObject(store)
-  }
-}
-#endif
+//#if DEBUG
+//struct ShoppingListRow_Previews : PreviewProvider {
+//  static var previews: some View {
+//    ShoppingListRow(toDo: ToDo(category: "Shopping", description: "Lettuce", done: "false", shoppingCategory: "Vegetables"))
+//  }
+//}
+//#endif

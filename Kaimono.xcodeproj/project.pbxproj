@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49063BE322C6AE1700E1A2C9 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */; };
-		49063BE522C6AE7B00E1A2C9 /* AddShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49063BE422C6AE7B00E1A2C9 /* AddShoppingItem.swift */; };
 		4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915255422CBC90200B57D41 /* FrequentItem.swift */; };
+		492962B5248D58E50014B5C1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 492962B4248D58E50014B5C1 /* ComposableArchitecture */; };
+		492962B7248D5B140014B5C1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492962B6248D5B140014B5C1 /* ActivityIndicator.swift */; };
 		4937A95E22CD1741001D458F /* ShoppingListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937A95D22CD1741001D458F /* ShoppingListRow.swift */; };
 		493F206F22C56D9600C38D34 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493F206E22C56D9600C38D34 /* Api.plist */; };
 		493F207222C5784A00C38D34 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207122C5784A00C38D34 /* ToDo.swift */; };
@@ -20,18 +20,13 @@
 		4992E99822C558CD00BA58AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99722C558CD00BA58AC /* Assets.xcassets */; };
 		4992E99B22C558CD00BA58AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */; };
 		4992E99E22C558CD00BA58AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */; };
-		49AFC94323073E8D00E77E3E /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = 49AFC94223073E8D00E77E3E /* SwiftUIFlux */; };
-		49AFC94823073F0900E77E3E /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94723073F0900E77E3E /* AppReducer.swift */; };
-		49AFC94A23073F3F00E77E3E /* ShoppingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94923073F3F00E77E3E /* ShoppingReducer.swift */; };
-		49AFC94C2307400400E77E3E /* ShoppingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94B2307400400E77E3E /* ShoppingActions.swift */; };
-		49AFC94E2307436400E77E3E /* ShoppingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94D2307436400E77E3E /* ShoppingState.swift */; };
-		49AFC9502307444800E77E3E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFC94F2307444800E77E3E /* AppState.swift */; };
+		49B123A72492974300DD7DF3 /* AddShoppingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123A62492974300DD7DF3 /* AddShoppingItemView.swift */; };
+		49B123A92492A63A00DD7DF3 /* FrequentItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123A82492A63A00DD7DF3 /* FrequentItemRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
-		49063BE422C6AE7B00E1A2C9 /* AddShoppingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingItem.swift; sourceTree = "<group>"; };
 		4915255422CBC90200B57D41 /* FrequentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItem.swift; sourceTree = "<group>"; };
+		492962B6248D5B140014B5C1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		4937A95D22CD1741001D458F /* ShoppingListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListRow.swift; sourceTree = "<group>"; };
 		493F206E22C56D9600C38D34 /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		493F207122C5784A00C38D34 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
@@ -45,11 +40,8 @@
 		4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4992E99D22C558CD00BA58AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4992E99F22C558CD00BA58AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49AFC94723073F0900E77E3E /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		49AFC94923073F3F00E77E3E /* ShoppingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingReducer.swift; sourceTree = "<group>"; };
-		49AFC94B2307400400E77E3E /* ShoppingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingActions.swift; sourceTree = "<group>"; };
-		49AFC94D2307436400E77E3E /* ShoppingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingState.swift; sourceTree = "<group>"; };
-		49AFC94F2307444800E77E3E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		49B123A62492974300DD7DF3 /* AddShoppingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingItemView.swift; sourceTree = "<group>"; };
+		49B123A82492A63A00DD7DF3 /* FrequentItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItemRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49AFC94323073E8D00E77E3E /* SwiftUIFlux in Frameworks */,
+				492962B5248D58E50014B5C1 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +67,11 @@
 		49185F7F22C6FCF6003BB77E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				49063BE422C6AE7B00E1A2C9 /* AddShoppingItem.swift */,
 				4937A95D22CD1741001D458F /* ShoppingListRow.swift */,
-				49063BE222C6AE1700E1A2C9 /* ShoppingListView.swift */,
 				4992E99522C558CA00BA58AC /* ContentView.swift */,
+				492962B6248D5B140014B5C1 /* ActivityIndicator.swift */,
+				49B123A62492974300DD7DF3 /* AddShoppingItemView.swift */,
+				49B123A82492A63A00DD7DF3 /* FrequentItemRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,9 +108,6 @@
 				49AFC9512307A88C00E77E3E /* Launch */,
 				493F207022C5782B00C38D34 /* Models */,
 				49185F7E22C6FCCF003BB77E /* Network */,
-				49AFC94623073EE700E77E3E /* State */,
-				49AFC94523073ED000E77E3E /* Reducers */,
-				49AFC94423073EB700E77E3E /* Actions */,
 				49185F7F22C6FCF6003BB77E /* Views */,
 				4992E99722C558CD00BA58AC /* Assets.xcassets */,
 				4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */,
@@ -134,32 +124,6 @@
 				4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		49AFC94423073EB700E77E3E /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				49AFC94B2307400400E77E3E /* ShoppingActions.swift */,
-			);
-			path = Actions;
-			sourceTree = "<group>";
-		};
-		49AFC94523073ED000E77E3E /* Reducers */ = {
-			isa = PBXGroup;
-			children = (
-				49AFC94723073F0900E77E3E /* AppReducer.swift */,
-				49AFC94923073F3F00E77E3E /* ShoppingReducer.swift */,
-			);
-			path = Reducers;
-			sourceTree = "<group>";
-		};
-		49AFC94623073EE700E77E3E /* State */ = {
-			isa = PBXGroup;
-			children = (
-				49AFC94D2307436400E77E3E /* ShoppingState.swift */,
-				49AFC94F2307444800E77E3E /* AppState.swift */,
-			);
-			path = State;
 			sourceTree = "<group>";
 		};
 		49AFC9512307A88C00E77E3E /* Launch */ = {
@@ -188,7 +152,7 @@
 			);
 			name = Kaimono;
 			packageProductDependencies = (
-				49AFC94223073E8D00E77E3E /* SwiftUIFlux */,
+				492962B4248D58E50014B5C1 /* ComposableArchitecture */,
 			);
 			productName = Kaimono;
 			productReference = 4992E98E22C558CA00BA58AC /* Kaimono.app */;
@@ -219,7 +183,7 @@
 			);
 			mainGroup = 4992E98522C558C900BA58AC;
 			packageReferences = (
-				49AFC94123073E8D00E77E3E /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
+				492962B3248D58E50014B5C1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 4992E98F22C558CA00BA58AC /* Products */;
 			projectDirPath = "";
@@ -249,20 +213,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49063BE322C6AE1700E1A2C9 /* ShoppingListView.swift in Sources */,
-				49063BE522C6AE7B00E1A2C9 /* AddShoppingItem.swift in Sources */,
 				495F9D1E22E62FF50030A973 /* ApiService.swift in Sources */,
 				4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */,
-				49AFC9502307444800E77E3E /* AppState.swift in Sources */,
 				493F207222C5784A00C38D34 /* ToDo.swift in Sources */,
-				49AFC94E2307436400E77E3E /* ShoppingState.swift in Sources */,
-				49AFC94823073F0900E77E3E /* AppReducer.swift in Sources */,
 				4937A95E22CD1741001D458F /* ShoppingListRow.swift in Sources */,
+				492962B7248D5B140014B5C1 /* ActivityIndicator.swift in Sources */,
+				49B123A92492A63A00DD7DF3 /* FrequentItemRow.swift in Sources */,
 				4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */,
-				49AFC94A23073F3F00E77E3E /* ShoppingReducer.swift in Sources */,
+				49B123A72492974300DD7DF3 /* AddShoppingItemView.swift in Sources */,
 				4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */,
 				4992E99622C558CA00BA58AC /* ContentView.swift in Sources */,
-				49AFC94C2307400400E77E3E /* ShoppingActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,21 +418,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		49AFC94123073E8D00E77E3E /* XCRemoteSwiftPackageReference "SwiftUIFlux" */ = {
+		492962B3248D58E50014B5C1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Dimillian/SwiftUIFlux";
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49AFC94223073E8D00E77E3E /* SwiftUIFlux */ = {
+		492962B4248D58E50014B5C1 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 49AFC94123073E8D00E77E3E /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
-			productName = SwiftUIFlux;
+			package = 492962B3248D58E50014B5C1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

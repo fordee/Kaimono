@@ -10,6 +10,10 @@ import Foundation
 import SwiftUI
 
 public struct FrequentItem: Codable, Equatable, Hashable, Identifiable {
+  public var id: String {
+    shoppingItem
+  }
+  
   
   public static func == (lhs: FrequentItem, rhs: FrequentItem) -> Bool {
     return lhs.frequencyInt! > rhs.frequencyInt!
