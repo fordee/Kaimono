@@ -21,7 +21,9 @@
 		4992E99B22C558CD00BA58AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99A22C558CD00BA58AC /* Preview Assets.xcassets */; };
 		4992E99E22C558CD00BA58AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */; };
 		49B123A72492974300DD7DF3 /* AddShoppingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123A62492974300DD7DF3 /* AddShoppingItemView.swift */; };
-		49B123A92492A63A00DD7DF3 /* FrequentItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123A82492A63A00DD7DF3 /* FrequentItemRow.swift */; };
+		49B123AB249445CF00DD7DF3 /* ToDoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123AA249445CF00DD7DF3 /* ToDoClient.swift */; };
+		49B123BC2494482100DD7DF3 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123BB2494482100DD7DF3 /* AppReducer.swift */; };
+		49B123BE2494486000DD7DF3 /* ToDoReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123BD2494486000DD7DF3 /* ToDoReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,9 @@
 		4992E99D22C558CD00BA58AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4992E99F22C558CD00BA58AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B123A62492974300DD7DF3 /* AddShoppingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingItemView.swift; sourceTree = "<group>"; };
-		49B123A82492A63A00DD7DF3 /* FrequentItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItemRow.swift; sourceTree = "<group>"; };
+		49B123AA249445CF00DD7DF3 /* ToDoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoClient.swift; sourceTree = "<group>"; };
+		49B123BB2494482100DD7DF3 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		49B123BD2494486000DD7DF3 /* ToDoReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				495F9D1D22E62FF50030A973 /* ApiService.swift */,
+				49B123AA249445CF00DD7DF3 /* ToDoClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -71,7 +76,6 @@
 				4992E99522C558CA00BA58AC /* ContentView.swift */,
 				492962B6248D5B140014B5C1 /* ActivityIndicator.swift */,
 				49B123A62492974300DD7DF3 /* AddShoppingItemView.swift */,
-				49B123A82492A63A00DD7DF3 /* FrequentItemRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +109,7 @@
 		4992E99022C558CA00BA58AC /* Kaimono */ = {
 			isa = PBXGroup;
 			children = (
+				49B123AE249446DE00DD7DF3 /* Reducers */,
 				49AFC9512307A88C00E77E3E /* Launch */,
 				493F207022C5782B00C38D34 /* Models */,
 				49185F7E22C6FCCF003BB77E /* Network */,
@@ -133,6 +138,15 @@
 				4992E99322C558CA00BA58AC /* SceneDelegate.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		49B123AE249446DE00DD7DF3 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				49B123BB2494482100DD7DF3 /* AppReducer.swift */,
+				49B123BD2494486000DD7DF3 /* ToDoReducer.swift */,
+			);
+			path = Reducers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,11 +232,13 @@
 				493F207222C5784A00C38D34 /* ToDo.swift in Sources */,
 				4937A95E22CD1741001D458F /* ShoppingListRow.swift in Sources */,
 				492962B7248D5B140014B5C1 /* ActivityIndicator.swift in Sources */,
-				49B123A92492A63A00DD7DF3 /* FrequentItemRow.swift in Sources */,
 				4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */,
+				49B123BE2494486000DD7DF3 /* ToDoReducer.swift in Sources */,
 				49B123A72492974300DD7DF3 /* AddShoppingItemView.swift in Sources */,
+				49B123BC2494482100DD7DF3 /* AppReducer.swift in Sources */,
 				4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */,
 				4992E99622C558CA00BA58AC /* ContentView.swift in Sources */,
+				49B123AB249445CF00DD7DF3 /* ToDoClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
