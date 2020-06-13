@@ -37,7 +37,7 @@ struct AppEnvironment {
 let appReducer =
   Reducer<AppState, AppAction, AppEnvironment>
   .combine(
-  toDoReducer.forEach(state: \AppState.toDos,
+    toDoReducer.forEach(state: \AppState.toDos,
                         action: /AppAction.toDo(index:action:),
                         environment: { environment in TodoEnvironment(toDoClient: environment.toDoClient, mainQueue: environment.mainQueue) }),
   Reducer /*<AppState, AppAction, AppEnvironment>*/ {

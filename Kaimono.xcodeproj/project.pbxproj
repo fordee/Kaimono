@@ -13,7 +13,6 @@
 		4937A95E22CD1741001D458F /* ShoppingListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937A95D22CD1741001D458F /* ShoppingListRow.swift */; };
 		493F206F22C56D9600C38D34 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493F206E22C56D9600C38D34 /* Api.plist */; };
 		493F207222C5784A00C38D34 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F207122C5784A00C38D34 /* ToDo.swift */; };
-		495F9D1E22E62FF50030A973 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F9D1D22E62FF50030A973 /* ApiService.swift */; };
 		4992E99222C558CA00BA58AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99122C558CA00BA58AC /* AppDelegate.swift */; };
 		4992E99422C558CA00BA58AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99322C558CA00BA58AC /* SceneDelegate.swift */; };
 		4992E99622C558CA00BA58AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992E99522C558CA00BA58AC /* ContentView.swift */; };
@@ -24,7 +23,18 @@
 		49B123AB249445CF00DD7DF3 /* ToDoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123AA249445CF00DD7DF3 /* ToDoClient.swift */; };
 		49B123BC2494482100DD7DF3 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123BB2494482100DD7DF3 /* AppReducer.swift */; };
 		49B123BE2494486000DD7DF3 /* ToDoReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123BD2494486000DD7DF3 /* ToDoReducer.swift */; };
+		49B123C82495544100DD7DF3 /* KaimonoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B123C72495544100DD7DF3 /* KaimonoTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49B123CA2495544100DD7DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4992E98622C558C900BA58AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4992E98D22C558C900BA58AC;
+			remoteInfo = Kaimono;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4915255422CBC90200B57D41 /* FrequentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItem.swift; sourceTree = "<group>"; };
@@ -33,7 +43,6 @@
 		493F206E22C56D9600C38D34 /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		493F207122C5784A00C38D34 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		493F207522C5A4D400C38D34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		495F9D1D22E62FF50030A973 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiService.swift; path = ../../../../../../../System/Volumes/Data/Users/fordee/Documents/dev/Kaimono/Kaimono/Network/ApiService.swift; sourceTree = "<group>"; };
 		4992E98E22C558CA00BA58AC /* Kaimono.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kaimono.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4992E99122C558CA00BA58AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4992E99322C558CA00BA58AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +55,9 @@
 		49B123AA249445CF00DD7DF3 /* ToDoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoClient.swift; sourceTree = "<group>"; };
 		49B123BB2494482100DD7DF3 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		49B123BD2494486000DD7DF3 /* ToDoReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoReducer.swift; sourceTree = "<group>"; };
+		49B123C52495544100DD7DF3 /* KaimonoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaimonoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B123C72495544100DD7DF3 /* KaimonoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaimonoTests.swift; sourceTree = "<group>"; };
+		49B123C92495544100DD7DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +69,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49B123C22495544100DD7DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		49185F7E22C6FCCF003BB77E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				495F9D1D22E62FF50030A973 /* ApiService.swift */,
 				49B123AA249445CF00DD7DF3 /* ToDoClient.swift */,
 			);
 			path = Network;
@@ -94,6 +112,7 @@
 			children = (
 				493F207522C5A4D400C38D34 /* README.md */,
 				4992E99022C558CA00BA58AC /* Kaimono */,
+				49B123C62495544100DD7DF3 /* KaimonoTests */,
 				4992E98F22C558CA00BA58AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				4992E98E22C558CA00BA58AC /* Kaimono.app */,
+				49B123C52495544100DD7DF3 /* KaimonoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +169,15 @@
 			path = Reducers;
 			sourceTree = "<group>";
 		};
+		49B123C62495544100DD7DF3 /* KaimonoTests */ = {
+			isa = PBXGroup;
+			children = (
+				49B123C72495544100DD7DF3 /* KaimonoTests.swift */,
+				49B123C92495544100DD7DF3 /* Info.plist */,
+			);
+			path = KaimonoTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,18 +201,40 @@
 			productReference = 4992E98E22C558CA00BA58AC /* Kaimono.app */;
 			productType = "com.apple.product-type.application";
 		};
+		49B123C42495544100DD7DF3 /* KaimonoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49B123CC2495544100DD7DF3 /* Build configuration list for PBXNativeTarget "KaimonoTests" */;
+			buildPhases = (
+				49B123C12495544100DD7DF3 /* Sources */,
+				49B123C22495544100DD7DF3 /* Frameworks */,
+				49B123C32495544100DD7DF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49B123CB2495544100DD7DF3 /* PBXTargetDependency */,
+			);
+			name = KaimonoTests;
+			productName = KaimonoTests;
+			productReference = 49B123C52495544100DD7DF3 /* KaimonoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4992E98622C558C900BA58AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "John Forde";
 				TargetAttributes = {
 					4992E98D22C558C900BA58AC = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					49B123C42495544100DD7DF3 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 4992E98D22C558C900BA58AC;
 					};
 				};
 			};
@@ -204,6 +255,7 @@
 			projectRoot = "";
 			targets = (
 				4992E98D22C558C900BA58AC /* Kaimono */,
+				49B123C42495544100DD7DF3 /* KaimonoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -220,6 +272,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49B123C32495544100DD7DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -227,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495F9D1E22E62FF50030A973 /* ApiService.swift in Sources */,
 				4915255522CBC90200B57D41 /* FrequentItem.swift in Sources */,
 				493F207222C5784A00C38D34 /* ToDo.swift in Sources */,
 				4937A95E22CD1741001D458F /* ShoppingListRow.swift in Sources */,
@@ -242,7 +300,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49B123C12495544100DD7DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49B123C82495544100DD7DF3 /* KaimonoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49B123CB2495544100DD7DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4992E98D22C558C900BA58AC /* Kaimono */;
+			targetProxy = 49B123CA2495544100DD7DF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4992E99C22C558CD00BA58AC /* LaunchScreen.storyboard */ = {
@@ -410,6 +484,48 @@
 			};
 			name = Release;
 		};
+		49B123CD2495544100DD7DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 322WP4362D;
+				INFOPLIST_FILE = KaimonoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fordee.KaimonoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kaimono.app/Kaimono";
+			};
+			name = Debug;
+		};
+		49B123CE2495544100DD7DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 322WP4362D;
+				INFOPLIST_FILE = KaimonoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fordee.KaimonoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kaimono.app/Kaimono";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -427,6 +543,15 @@
 			buildConfigurations = (
 				4992E9A322C558CD00BA58AC /* Debug */,
 				4992E9A422C558CD00BA58AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49B123CC2495544100DD7DF3 /* Build configuration list for PBXNativeTarget "KaimonoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49B123CD2495544100DD7DF3 /* Debug */,
+				49B123CE2495544100DD7DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

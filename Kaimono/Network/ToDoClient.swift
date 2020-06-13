@@ -89,8 +89,8 @@ extension ToDoClient {
     getToDos: @escaping () -> Effect<[ToDo], Failure> = { fatalError("Unmocked") },
     getFrequentItems: @escaping () -> Effect<[FrequentItem], Failure> = { fatalError("Unmocked") },
     updateToDos: @escaping (ToDo) -> Effect<ToDo, Failure> = { _ in fatalError("Unmocked") },
-    deleteToDo: @escaping (ToDo) -> Effect<String, Failure> = { _ in fatalError("Unmocked") },
-    addToDo: @escaping (ToDo) -> Effect<ToDo, Failure> = { _ in fatalError("Unmocked") }
+    addToDo: @escaping (ToDo) -> Effect<ToDo, Failure> = { toDo in  fatalError("Unmocked \(toDo)") },
+    deleteToDo: @escaping (ToDo) -> Effect<String, Failure> = { _ in fatalError("Unmocked") }
   ) -> Self {
     Self(
       getToDos: getToDos,
