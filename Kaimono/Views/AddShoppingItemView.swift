@@ -28,7 +28,9 @@ struct AddShoppingItemView: View {
             .padding(.top, 8).padding(.leading).padding(.trailing).padding(.bottom, 8)
             .foregroundColor(Color("text"))
           List {
-            ForEach(Array(viewStore.frequentItems.enumerated()), id: \.element.id) { index, frequesntItem in
+            ForEach(Array(viewStore.frequentItems
+              .filter { viewStore.shoppingItem == "" ? true : $0.shoppingItem.lowercased().contains(viewStore.shoppingItem.lowercased()) }
+                          .enumerated()), id: \.element.id) { index, frequesntItem in
               Text(frequesntItem.shoppingItem)
                 .font(.custom("American Typewriter", size: 24))
                 .fontWeight(.regular)

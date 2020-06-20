@@ -112,7 +112,8 @@ let appReducer =
       return .none
       
     case let .getFrequentItemsResponse(.success(response)):
-      state.frequentItems = response.sorted()
+      state.frequentItems = response
+        .sorted()
       return .none
     
     case .toDo(index: _, action: .checkboxTapped):
@@ -129,6 +130,7 @@ let appReducer =
       
     case .editText(let text):
       state.shoppingItem = text
+      //state.frequentItems = state.frequentItems.filter { $0.shoppingItem.lowercased().contains(text.lowercased()) }
       return .none
       
     case .frequentItem(index: let index, text: let text):

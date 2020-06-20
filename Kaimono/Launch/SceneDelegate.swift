@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
       let controller = UIHostingController(rootView: ContentView(store:
         Store(initialState: AppState(),
-              reducer: appReducer.debug(),
+              reducer: appReducer,//.debug(),
               environment: AppEnvironment(toDoClient: ToDoClient.live,
                                           mainQueue: DispatchQueue.main.eraseToAnyScheduler())
             )))

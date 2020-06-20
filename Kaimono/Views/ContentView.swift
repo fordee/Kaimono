@@ -50,7 +50,6 @@ struct ContentView : View {
             }
           },
           trailing: Button(action: {
-            //viewStore.send(.addButtonTapped)
             self.showingAddItemView.toggle()
           }) {
             Image(systemName: "plus")
